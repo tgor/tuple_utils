@@ -2,8 +2,10 @@
 #define FOLD_TUPLES_H
 
 #include <tuple>
+#include <type_traits>
 #include "indices.hpp"
 #include "make_custom_tuple.hpp"
+#include "traits.hpp"
 
 /**
  * @file
@@ -23,43 +25,45 @@ template <
         typename Y,
         typename Z
         >
-Y add_helper(Y beforelast, Z last);
+typename std::common_type<Y, Z>::type add_helper(const Y& beforelast, const Z& last);
 
 /**
  *@brief Add unknown number of elements together
  *Helper function called with at least one element. Recursively calculates sum of all elements
- *@return sum of the first element with the result of a recursive add_helper call
+ *@return sum of the first element with the result of a recursive add_helper call, type of the
+ *returned value is recursively searched with std::common_type (with helper type of
+ *common_type_var defined in traits.hpp
  */
 template <
         typename F,
         typename... R
         >
-F add_helper(F first, R... rest)
- {
- return first + add_helper<R...>(rest...);
+typename common_type_var<F, R...>::type add_helper(const F& first, const R&... rest)
+{
+    return first + add_helper<R...>(rest...);
 }
 
 /**
  *@brief Last recursive call for add_helper function.
- *@return sum of two elements
+ *@return sum of two elements, type is deduced with std::common_type
  */
 template <
         typename Y,
         typename Z
         >
-Y add_helper(Y beforelast, Z last)
+typename std::common_type<Y, Z>::type add_helper(const Y& beforelast, const Z& last)
 {
- return beforelast + last;
+    return beforelast + last;
 }
 
 /**
  *@brief Special case when tuple_utils::fold is invoked with only one argument
- *@return return value of given argument
+ *@return return value of argument given
  */
 template <
         typename T
         >
-T add_helper(T arg)
+T add_helper(const T& arg)
 {
     return arg;
 }
