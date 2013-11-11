@@ -16,18 +16,15 @@ namespace tuple_utils
 namespace details
 {
 
+//Forward declaration
 template <typename...>
 struct merge_tuples_type;
 
-template <
-        typename... Args1,
-        typename... Args2
-        >
-struct merge_tuples_type<std::tuple<Args1...>, std::tuple<Args2...>>
-{
-    using type = std::tuple<Args1..., Args2...>;
-};
-
+/**
+ *@brief Obtain type of few std::tuples merged together
+ *For example merge of std::tuple<int, float, double>, std::tuple<std::string> and std::tuple<long, short>
+ *will yield type std::tuple<int, float, double, std::string, long, short>
+ */
 template <
         typename... Args1,
         typename... Args2,
@@ -38,8 +35,24 @@ struct merge_tuples_type<std::tuple<Args1...>, std::tuple<Args2...>, Rest...>
     using type = typename merge_tuples_type<std::tuple<Args1..., Args2...>, Rest...>::type;
 };
 
+/**
+ *@brief Get type of two std::tuples merged together
+ *Last recursive step of merge_tuples_type<>::type where type member is std::tuple of types from
+ *both tuples given as parameters
+ */
+template <
+        typename... Args1,
+        typename... Args2
+        >
+struct merge_tuples_type<std::tuple<Args1...>, std::tuple<Args2...>>
+{
+    using type = std::tuple<Args1..., Args2...>;
+};
+
+//forward declaration
 template <typename...>
 struct merge_tuples_det;
+
 
 template <
         typename... Args1,
@@ -127,12 +140,12 @@ auto merge(const std::tuple<Args1...>& tuple1, const std::tuple<Args2...>& tuple
 
 /**
   *@brief Overload for calling tuple_utils::merge with only one argument
-  *Returns copy of the given argument
+  *Special case which returns only a copy of the given argument
   */
 template <
         typename... Args
         >
-std::tuple<Args...> merge(const std::tuple<Args...>& arg)
+std::tuple<Args...> merge(std::tuple<Args...> arg)
 {
     return arg;
 }
