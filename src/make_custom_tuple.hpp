@@ -1,7 +1,7 @@
 #ifndef MAKE_CUSTOM_TUPLE_H
 #define MAKE_CUSTOM_TUPLE_H
 
-#include "sequence.hpp"
+#include "aux/sequence.hpp"
 #include <tuple>
 
 /**
@@ -36,7 +36,7 @@ void assign(L& left, const R& right)
  */
 template <
         typename Tuple,
-        std::size_t ...Sequence
+        std::size_t... Sequence
         >
 struct tupleTypeFromSequence;
 
@@ -46,7 +46,7 @@ struct tupleTypeFromSequence;
 template <
         typename Tuple,
         std::size_t First,
-        std::size_t ...Sequence
+        std::size_t... Sequence
         >
 struct tupleTypeFromSequence<Tuple, First, Sequence...>
 {
@@ -71,6 +71,9 @@ struct tupleTypeFromSequence<Tuple, BeforeLast, Last>
     using type = std::tuple<typename std::tuple_element<BeforeLast, Tuple>::type, typename std::tuple_element<Last, Tuple>::type>;
 };
 
+/**
+ *@brief Special case for calling make_custom_tuple without any indices (i.e. requesting empty tuple)
+ */
 template <
         typename Tuple
         >

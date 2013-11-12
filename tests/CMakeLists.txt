@@ -7,6 +7,7 @@ macro(add_unit_test name)
 endmacro()
 
 enable_testing()
+add_unit_test(sequence)
 add_unit_test(make_custom_tuple)
 add_unit_test(fold_tuples)
 add_unit_test(merge_tuples)

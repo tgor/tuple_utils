@@ -4,7 +4,7 @@
 #include <tuple>
 #include <type_traits>
 #include "make_custom_tuple.hpp"
-#include "traits.hpp"
+#include "aux/traits.hpp"
 
 /**
  * @file

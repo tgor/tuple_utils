@@ -126,10 +126,10 @@ CPPUNIT_TEST_SUITE_REGISTRATION( TestFoldTuple );
 
 int main()
 {
-  CppUnit::TextUi::TestRunner runner;
-  CppUnit::TestFactoryRegistry &registry = CppUnit::TestFactoryRegistry::getRegistry();
-  runner.addTest(registry.makeTest());
-  bool wasSuccessful = runner.run("", false);
-  return wasSuccessful;
+    CppUnit::TextUi::TestRunner runner;
+    CppUnit::TestFactoryRegistry &registry = CppUnit::TestFactoryRegistry::getRegistry();
+    runner.addTest(registry.makeTest());
+    bool wasSuccessful = runner.run("", false);
+    return wasSuccessful;
 }
 
