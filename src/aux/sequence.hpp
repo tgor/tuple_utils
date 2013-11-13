@@ -18,7 +18,7 @@ namespace tuple_utils
 
 //forward declaration
 template <std::size_t...>
-class sequence;
+struct sequence;
 
 /**
  *@brief Class parametrized with variable number of std::size_t's, used only to keep those values
@@ -29,16 +29,14 @@ template <
         std::size_t I,
         std::size_t... N
         >
-class sequence<I, N...>
+struct sequence<I, N...>
 {
-public:
     static std::ostream& print(std::ostream& str)
     {
         str << I << " ";
         sequence<N...>::print(str);
         return str;
     }
-    friend class TestSequence;
 };
 
 /**
@@ -47,22 +45,20 @@ public:
 template <
         std::size_t I
         >
-class sequence<I>
+struct sequence<I>
 {
-public:
     static std::ostream& print(std::ostream& str)
     {
         str << I;
         return str;
     }
-    friend class TestSequence;
 };
 
 /**
  *@brief Empty sequence, useful when operating on empty tuples
  */
 template <>
-class sequence<>
+struct sequence<>
 { };
 
 ///@internal
