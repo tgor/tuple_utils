@@ -94,7 +94,7 @@ struct partitionTuple
     /** std::tuple type set by tupleTypeFromSequence. */
     using PartitionType = typename tupleTypeFromSequence<Tuple, Sequence...>::type;
     /** sequence pack created based on non-type template parameter Sequence. */
-    static constexpr auto range = make_sequence<std::tuple_size<PartitionType>::value>();
+    static constexpr auto range = typename make_sequence<std::tuple_size<PartitionType>::value>::type();
 
     /**
      *@brief Create and fill custom tuple.

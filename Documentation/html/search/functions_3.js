@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['main',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
-  ['make_5fcustom_5ftuple',['make_custom_tuple',['../namespacetuple__utils.html#a3905235db9c5de949697c262bdad35c5',1,'tuple_utils']]],
-  ['merge',['merge',['../namespacetuple__utils.html#a045a0093919e411236d660f447bee968',1,'tuple_utils::merge(const std::tuple&lt; Args1...&gt; &amp;tuple1, const std::tuple&lt; Args2...&gt; &amp;tuple2, const Rest &amp;...rest) -&gt; typename details::merge_tuples_det&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, Rest...&gt;::Ret'],['../namespacetuple__utils.html#aec674787c9a7d935f4a1380fa78bcd43',1,'tuple_utils::merge(const std::tuple&lt; Args...&gt; &amp;arg)']]]
+  ['fold',['fold',['../namespacetuple__utils.html#af489ebd8fceb4ce1e6aba8eeea4e6966',1,'tuple_utils']]],
+  ['fold_5fhelper',['fold_helper',['../structtuple__utils_1_1details_1_1tuple__fold__det.html#a128061fa9062e4b7d14b7a9e75b7c423',1,'tuple_utils::details::tuple_fold_det::fold_helper()'],['../structtuple__utils_1_1details_1_1tuple__fold__det_3_01End_00_01End_00_01Args_8_8_8_4.html#aa5427add7cd435393052ab651b3e72c4',1,'tuple_utils::details::tuple_fold_det&lt; End, End, Args...&gt;::fold_helper()']]]
 ];

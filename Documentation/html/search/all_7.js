@@ -1,6 +1,17 @@
 var searchData=
 [
-  ['part',['part',['../structtuple__utils_1_1details_1_1partitionTuple.html#ac6dac9eec9bf982f06e3a8a1dc5f0f3d',1,'tuple_utils::details::partitionTuple']]],
-  ['partitiontuple',['partitionTuple',['../structtuple__utils_1_1details_1_1partitionTuple.html',1,'tuple_utils::details']]],
-  ['partitiontype',['PartitionType',['../structtuple__utils_1_1details_1_1partitionTuple.html#a3d3a5a03886f93e1b2d095e06da5eb29',1,'tuple_utils::details::partitionTuple']]]
+  ['main',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
+  ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
+  ['make_5fcustom_5ftuple',['make_custom_tuple',['../namespacetuple__utils.html#a93944899a2b6e428570e091171e25cc4',1,'tuple_utils']]],
+  ['make_5fcustom_5ftuple_2ehpp',['make_custom_tuple.hpp',['../make__custom__tuple_8hpp.html',1,'']]],
+  ['merge',['merge',['../namespacetuple__utils.html#a045a0093919e411236d660f447bee968',1,'tuple_utils::merge(const std::tuple&lt; Args1...&gt; &amp;tuple1, const std::tuple&lt; Args2...&gt; &amp;tuple2, const Rest &amp;...rest) -&gt; typename details::merge_tuples_det&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, Rest...&gt;::Ret'],['../namespacetuple__utils.html#a5094849234c70f729699843100de2b8c',1,'tuple_utils::merge(std::tuple&lt; Args...&gt; arg)']]],
+  ['merge_5fhelper',['merge_helper',['../structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_a43a45c13b9ee7cb685e430f08c0b85d.html',1,'tuple_utils::details::merge_tuples_det&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, RestArgs...&gt;']]],
+  ['merge_5ftuples_2ehpp',['merge_tuples.hpp',['../merge__tuples_8hpp.html',1,'']]],
+  ['merge_5ftuples_5fdet',['merge_tuples_det',['../structtuple__utils_1_1details_1_1merge__tuples__det.html',1,'tuple_utils::details']]],
+  ['merge_5ftuples_5fdet_3c_20std_3a_3atuple_3c_20args1_2e_2e_2e_3e_2c_20std_3a_3atuple_3c_20args2_2e_2e_2e_3e_2c_20restargs_2e_2e_2e_3e',['merge_tuples_det&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, RestArgs...&gt;',['../structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_5dc2225007018bd5fa8bb9775801f74b.html',1,'tuple_utils::details']]],
+  ['merge_5ftuples_5ftype',['merge_tuples_type',['../structtuple__utils_1_1details_1_1merge__tuples__type.html',1,'tuple_utils::details']]],
+  ['merge_5ftuples_5ftype_3c_20std_3a_3atuple_3c_20args1_2e_2e_2e_3e_2c_20std_3a_3atuple_3c_20args2_2e_2e_2e_3e_20_3e',['merge_tuples_type&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt; &gt;',['../structtuple__utils_1_1details_1_1merge__tuples__type_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std7d201ea62b9d11c5cad41da6b9eebe51.html',1,'tuple_utils::details']]],
+  ['merge_5ftuples_5ftype_3c_20std_3a_3atuple_3c_20args1_2e_2e_2e_3e_2c_20std_3a_3atuple_3c_20args2_2e_2e_2e_3e_2c_20rest_2e_2e_2e_3e',['merge_tuples_type&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, Rest...&gt;',['../structtuple__utils_1_1details_1_1merge__tuples__type_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std23ad6cd5f2358135a3dce87db9845080.html',1,'tuple_utils::details']]],
+  ['merge_5funroll',['merge_unroll',['../structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_92da8c001722a49f0fab8a06bfc7f291.html',1,'tuple_utils::details::merge_tuples_det&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, RestArgs...&gt;']]],
+  ['merge_5funroll_3c_20resultbegin_2c_20argend_2c_20argend_20_3e',['merge_unroll&lt; ResultBegin, ArgEnd, ArgEnd &gt;',['../structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_edaa6b545f3890910e317b0a3f3ac160.html',1,'tuple_utils::details::merge_tuples_det&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, RestArgs...&gt;']]]
 ];

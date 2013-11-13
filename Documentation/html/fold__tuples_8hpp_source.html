@@ -89,109 +89,109 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define FOLD_TUPLES_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;tuple&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="indices_8hpp.html">indices.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="make__custom__tuple_8hpp.html">make_custom_tuple.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>tuple_utils</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="namespacetuple__utils_1_1details.html">   18</a></span>&#160;<span class="keyword">namespace </span>details</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">//Forward declaration</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">template</span> &lt;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">typename</span> Y,</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">typename</span> Z</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        &gt;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;Y <a class="code" href="namespacetuple__utils_1_1details.html#ac7877ae556d86e902c4c616bda48b8c3">add_helper</a>(Y beforelast, Z last);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">template</span> &lt;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">typename</span> F,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">typename</span>... R</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        &gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespacetuple__utils_1_1details.html#a45f2af316342ee1b4e762a201cab837f">   37</a></span>&#160;F <a class="code" href="namespacetuple__utils_1_1details.html#ac7877ae556d86e902c4c616bda48b8c3">add_helper</a>(F first, R... rest)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; <span class="keywordflow">return</span> first + add_helper&lt;R...&gt;(rest...);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">template</span> &lt;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">typename</span> Y,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">typename</span> Z</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        &gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespacetuple__utils_1_1details.html#ac7877ae556d86e902c4c616bda48b8c3">   50</a></span>&#160;Y <a class="code" href="namespacetuple__utils_1_1details.html#ac7877ae556d86e902c4c616bda48b8c3">add_helper</a>(Y beforelast, Z last)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; <span class="keywordflow">return</span> beforelast + last;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">template</span> &lt;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">typename</span> T</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        &gt;</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="namespacetuple__utils_1_1details.html#a0a10766377597f006ade1df5ce37997e">   62</a></span>&#160;T <a class="code" href="namespacetuple__utils_1_1details.html#ac7877ae556d86e902c4c616bda48b8c3">add_helper</a>(T arg)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> arg;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">template</span> &lt;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">int</span> Begin,</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">int</span> End,</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keyword">typename</span>... Args</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        &gt;</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="structtuple__utils_1_1details_1_1tuple__fold__det.html">   79</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtuple__utils_1_1details_1_1tuple__fold__det.html">tuple_fold_det</a></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">template</span> &lt;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Res,</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class</span>... T</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            &gt;</div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="structtuple__utils_1_1details_1_1tuple__fold__det.html#a128061fa9062e4b7d14b7a9e75b7c423">   89</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structtuple__utils_1_1details_1_1tuple__fold__det.html#a128061fa9062e4b7d14b7a9e75b7c423">fold_helper</a>(Res&lt;Args...&gt;&amp; result, <span class="keyword">const</span> Res&lt;Args...&gt;&amp; first, <span class="keyword">const</span> T&lt;Args...&gt;&amp;... rest)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <a class="code" href="namespacetuple__utils_1_1details.html#adbd61ea41d436dae652f7b00088a2dbb">tuple_utils::details::assign</a>(std::get&lt;Begin&gt;(result), <a class="code" href="namespacetuple__utils_1_1details.html#ac7877ae556d86e902c4c616bda48b8c3">add_helper</a>(std::get&lt;Begin&gt;(first), std::get&lt;Begin&gt;(rest)...));</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <a class="code" href="structtuple__utils_1_1details_1_1tuple__fold__det.html#a128061fa9062e4b7d14b7a9e75b7c423">tuple_fold_det&lt;Begin + 1, End, Args...&gt;::fold_helper</a>(result, first, rest...);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">template</span> &lt;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordtype">int</span> End,</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keyword">typename</span>... Args</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        &gt;</div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="structtuple__utils_1_1details_1_1tuple__fold__det_3_01End_00_01End_00_01Args_8_8_8_4.html">  104</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtuple__utils_1_1details_1_1tuple__fold__det.html">tuple_fold_det</a>&lt;End, End, Args...&gt;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">template</span> &lt;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Res,</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class</span>... T</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            &gt;</div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="structtuple__utils_1_1details_1_1tuple__fold__det_3_01End_00_01End_00_01Args_8_8_8_4.html#aa5427add7cd435393052ab651b3e72c4">  113</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structtuple__utils_1_1details_1_1tuple__fold__det_3_01End_00_01End_00_01Args_8_8_8_4.html#aa5427add7cd435393052ab651b3e72c4">fold_helper</a>(Res&lt;Args...&gt;&amp;, <span class="keyword">const</span> Res&lt;Args...&gt;&amp;, <span class="keyword">const</span> T&lt;Args...&gt;&amp;...)</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    { }</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;};</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;} <span class="comment">//namespace details</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keyword">template</span> &lt;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Tup,</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class</span>... Res,</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keyword">typename</span>... Args</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        &gt;</div>
-<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="namespacetuple__utils.html#af489ebd8fceb4ce1e6aba8eeea4e6966">  142</a></span>&#160;Tup&lt;Args...&gt; <a class="code" href="namespacetuple__utils.html#af489ebd8fceb4ce1e6aba8eeea4e6966">fold</a>(Tup&lt;Args...&gt;&amp; first, Res&lt;Args...&gt;&amp;... rest)</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;{</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">auto</span> range = std::tuple_size&lt;Tup&lt;Args...&gt;&gt;::value;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    Tup&lt;Args...&gt; result;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <a class="code" href="structtuple__utils_1_1details_1_1tuple__fold__det.html#a128061fa9062e4b7d14b7a9e75b7c423">details::tuple_fold_det&lt;0, range, Args...&gt;::fold_helper</a>(result, first, rest...);</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;}</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;} <span class="comment">//namespace tuple_utils</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor">#endif // FOLD_TUPLES_H</span></div>
-<div class="ttc" id="indices_8hpp_html"><div class="ttname"><a href="indices_8hpp.html">indices.hpp</a></div></div>
-<div class="ttc" id="structtuple__utils_1_1details_1_1tuple__fold__det_html"><div class="ttname"><a href="structtuple__utils_1_1details_1_1tuple__fold__det.html">tuple_utils::details::tuple_fold_det</a></div><div class="ttdoc">Helper function used by the tuple_utils::fold Assigns values in unrolled loop based on current index...</div><div class="ttdef"><b>Definition:</b> fold_tuples.hpp:79</div></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;aux/traits.hpp&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>tuple_utils</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespacetuple__utils_1_1details.html">   19</a></span>&#160;<span class="keyword">namespace </span>details</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//Forward declaration</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">template</span> &lt;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">typename</span> Y,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">typename</span> Z</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        &gt;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">typename</span> std::common_type&lt;Y, Z&gt;::type <a class="code" href="namespacetuple__utils_1_1details.html#a57c1286bcd1a0aac769052a445272e7d">add_helper</a>(<span class="keyword">const</span> Y&amp; beforelast, <span class="keyword">const</span> Z&amp; last);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span> &lt;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">typename</span> F,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">typename</span>... R</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        &gt;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="namespacetuple__utils_1_1details.html#a77f2b4852dc4fa51e7c49c1f47392b85">   40</a></span>&#160;<span class="keyword">typename</span> common_type_var&lt;F, R...&gt;::type <a class="code" href="namespacetuple__utils_1_1details.html#a57c1286bcd1a0aac769052a445272e7d">add_helper</a>(<span class="keyword">const</span> F&amp; first, <span class="keyword">const</span> R&amp;... rest)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">return</span> first + add_helper&lt;R...&gt;(rest...);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">template</span> &lt;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">typename</span> Y,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">typename</span> Z</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        &gt;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="namespacetuple__utils_1_1details.html#a57c1286bcd1a0aac769052a445272e7d">   53</a></span>&#160;<span class="keyword">typename</span> std::common_type&lt;Y, Z&gt;::type <a class="code" href="namespacetuple__utils_1_1details.html#a57c1286bcd1a0aac769052a445272e7d">add_helper</a>(<span class="keyword">const</span> Y&amp; beforelast, <span class="keyword">const</span> Z&amp; last)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">return</span> beforelast + last;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">template</span> &lt;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">typename</span> T</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        &gt;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="namespacetuple__utils_1_1details.html#aa8de509bc8c855ddbb95dce11cccaa79">   65</a></span>&#160;T <a class="code" href="namespacetuple__utils_1_1details.html#a57c1286bcd1a0aac769052a445272e7d">add_helper</a>(<span class="keyword">const</span> T&amp; arg)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> arg;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">template</span> &lt;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        std::size_t Begin,</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        std::size_t End,</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">typename</span>... Args</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        &gt;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="structtuple__utils_1_1details_1_1tuple__fold__det.html">   82</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtuple__utils_1_1details_1_1tuple__fold__det.html">tuple_fold_det</a></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">template</span> &lt;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Res,</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class</span>... T</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            &gt;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="structtuple__utils_1_1details_1_1tuple__fold__det.html#a128061fa9062e4b7d14b7a9e75b7c423">   92</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structtuple__utils_1_1details_1_1tuple__fold__det.html#a128061fa9062e4b7d14b7a9e75b7c423">fold_helper</a>(Res&lt;Args...&gt;&amp; result, <span class="keyword">const</span> Res&lt;Args...&gt;&amp; first, <span class="keyword">const</span> T&lt;Args...&gt;&amp;... rest)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="namespacetuple__utils_1_1details.html#adbd61ea41d436dae652f7b00088a2dbb">tuple_utils::details::assign</a>(std::get&lt;Begin&gt;(result), <a class="code" href="namespacetuple__utils_1_1details.html#a57c1286bcd1a0aac769052a445272e7d">add_helper</a>(std::get&lt;Begin&gt;(first), std::get&lt;Begin&gt;(rest)...));</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <a class="code" href="structtuple__utils_1_1details_1_1tuple__fold__det.html#a128061fa9062e4b7d14b7a9e75b7c423">tuple_fold_det&lt;Begin + 1, End, Args...&gt;::fold_helper</a>(result, first, rest...);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;};</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">template</span> &lt;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        std::size_t End,</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keyword">typename</span>... Args</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        &gt;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="structtuple__utils_1_1details_1_1tuple__fold__det_3_01End_00_01End_00_01Args_8_8_8_4.html">  107</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtuple__utils_1_1details_1_1tuple__fold__det.html">tuple_fold_det</a>&lt;End, End, Args...&gt;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;{</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keyword">template</span> &lt;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Res,</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class</span>... T</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            &gt;</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="structtuple__utils_1_1details_1_1tuple__fold__det_3_01End_00_01End_00_01Args_8_8_8_4.html#aa5427add7cd435393052ab651b3e72c4">  116</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structtuple__utils_1_1details_1_1tuple__fold__det_3_01End_00_01End_00_01Args_8_8_8_4.html#aa5427add7cd435393052ab651b3e72c4">fold_helper</a>(Res&lt;Args...&gt;&amp;, <span class="keyword">const</span> Res&lt;Args...&gt;&amp;, <span class="keyword">const</span> T&lt;Args...&gt;&amp;...)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    { }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;};</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;} <span class="comment">//namespace details</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="keyword">template</span> &lt;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Tup,</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class</span>... Res,</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keyword">typename</span>... Args</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        &gt;</div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="namespacetuple__utils.html#af489ebd8fceb4ce1e6aba8eeea4e6966">  145</a></span>&#160;Tup&lt;Args...&gt; <a class="code" href="namespacetuple__utils.html#af489ebd8fceb4ce1e6aba8eeea4e6966">fold</a>(Tup&lt;Args...&gt;&amp; first, Res&lt;Args...&gt;&amp;... rest)</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;{</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    constexpr <span class="keyword">static</span> <span class="keyword">auto</span> range = std::tuple_size&lt;Tup&lt;Args...&gt;&gt;::value;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    Tup&lt;Args...&gt; result;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <a class="code" href="structtuple__utils_1_1details_1_1tuple__fold__det.html#a128061fa9062e4b7d14b7a9e75b7c423">details::tuple_fold_det&lt;0, range, Args...&gt;::fold_helper</a>(result, first, rest...);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;}</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;} <span class="comment">//namespace tuple_utils</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="preprocessor">#endif // FOLD_TUPLES_H</span></div>
+<div class="ttc" id="structtuple__utils_1_1details_1_1tuple__fold__det_html"><div class="ttname"><a href="structtuple__utils_1_1details_1_1tuple__fold__det.html">tuple_utils::details::tuple_fold_det</a></div><div class="ttdoc">Helper function used by the tuple_utils::fold Assigns values in unrolled loop based on current index...</div><div class="ttdef"><b>Definition:</b> fold_tuples.hpp:82</div></div>
 <div class="ttc" id="namespacetuple__utils_1_1details_html_adbd61ea41d436dae652f7b00088a2dbb"><div class="ttname"><a href="namespacetuple__utils_1_1details.html#adbd61ea41d436dae652f7b00088a2dbb">tuple_utils::details::assign</a></div><div class="ttdeci">void assign(L &amp;left, const R &amp;right)</div><div class="ttdoc">Assign value of the second argument to the first one. </div><div class="ttdef"><b>Definition:</b> make_custom_tuple.hpp:28</div></div>
-<div class="ttc" id="structtuple__utils_1_1details_1_1tuple__fold__det_3_01End_00_01End_00_01Args_8_8_8_4_html_aa5427add7cd435393052ab651b3e72c4"><div class="ttname"><a href="structtuple__utils_1_1details_1_1tuple__fold__det_3_01End_00_01End_00_01Args_8_8_8_4.html#aa5427add7cd435393052ab651b3e72c4">tuple_utils::details::tuple_fold_det&lt; End, End, Args...&gt;::fold_helper</a></div><div class="ttdeci">static void fold_helper(Res&lt; Args...&gt; &amp;, const Res&lt; Args...&gt; &amp;, const T&lt; Args...&gt; &amp;...)</div><div class="ttdoc">Called for the std::tuple_size&amp;lt;X&amp;gt;::value index, which is one past last tuple element, thus in this case fold_helper is no-op. </div><div class="ttdef"><b>Definition:</b> fold_tuples.hpp:113</div></div>
-<div class="ttc" id="namespacetuple__utils_html_af489ebd8fceb4ce1e6aba8eeea4e6966"><div class="ttname"><a href="namespacetuple__utils.html#af489ebd8fceb4ce1e6aba8eeea4e6966">tuple_utils::fold</a></div><div class="ttdeci">Tup&lt; Args...&gt; fold(Tup&lt; Args...&gt; &amp;first, Res&lt; Args...&gt; &amp;...rest)</div><div class="ttdef"><b>Definition:</b> fold_tuples.hpp:142</div></div>
-<div class="ttc" id="namespacetuple__utils_1_1details_html_ac7877ae556d86e902c4c616bda48b8c3"><div class="ttname"><a href="namespacetuple__utils_1_1details.html#ac7877ae556d86e902c4c616bda48b8c3">tuple_utils::details::add_helper</a></div><div class="ttdeci">Y add_helper(Y beforelast, Z last)</div><div class="ttdoc">Last recursive call for add_helper function. </div><div class="ttdef"><b>Definition:</b> fold_tuples.hpp:50</div></div>
+<div class="ttc" id="structtuple__utils_1_1details_1_1tuple__fold__det_3_01End_00_01End_00_01Args_8_8_8_4_html_aa5427add7cd435393052ab651b3e72c4"><div class="ttname"><a href="structtuple__utils_1_1details_1_1tuple__fold__det_3_01End_00_01End_00_01Args_8_8_8_4.html#aa5427add7cd435393052ab651b3e72c4">tuple_utils::details::tuple_fold_det&lt; End, End, Args...&gt;::fold_helper</a></div><div class="ttdeci">static void fold_helper(Res&lt; Args...&gt; &amp;, const Res&lt; Args...&gt; &amp;, const T&lt; Args...&gt; &amp;...)</div><div class="ttdoc">Called for the std::tuple_size&amp;lt;X&amp;gt;::value index, which is one past last tuple element, thus in this case fold_helper is no-op. </div><div class="ttdef"><b>Definition:</b> fold_tuples.hpp:116</div></div>
+<div class="ttc" id="namespacetuple__utils_1_1details_html_a57c1286bcd1a0aac769052a445272e7d"><div class="ttname"><a href="namespacetuple__utils_1_1details.html#a57c1286bcd1a0aac769052a445272e7d">tuple_utils::details::add_helper</a></div><div class="ttdeci">std::common_type&lt; Y, Z &gt;::type add_helper(const Y &amp;beforelast, const Z &amp;last)</div><div class="ttdoc">Last recursive call for add_helper function. </div><div class="ttdef"><b>Definition:</b> fold_tuples.hpp:53</div></div>
+<div class="ttc" id="namespacetuple__utils_html_af489ebd8fceb4ce1e6aba8eeea4e6966"><div class="ttname"><a href="namespacetuple__utils.html#af489ebd8fceb4ce1e6aba8eeea4e6966">tuple_utils::fold</a></div><div class="ttdeci">Tup&lt; Args...&gt; fold(Tup&lt; Args...&gt; &amp;first, Res&lt; Args...&gt; &amp;...rest)</div><div class="ttdef"><b>Definition:</b> fold_tuples.hpp:145</div></div>
 <div class="ttc" id="make__custom__tuple_8hpp_html"><div class="ttname"><a href="make__custom__tuple_8hpp.html">make_custom_tuple.hpp</a></div></div>
-<div class="ttc" id="structtuple__utils_1_1details_1_1tuple__fold__det_html_a128061fa9062e4b7d14b7a9e75b7c423"><div class="ttname"><a href="structtuple__utils_1_1details_1_1tuple__fold__det.html#a128061fa9062e4b7d14b7a9e75b7c423">tuple_utils::details::tuple_fold_det::fold_helper</a></div><div class="ttdeci">static void fold_helper(Res&lt; Args...&gt; &amp;result, const Res&lt; Args...&gt; &amp;first, const T&lt; Args...&gt; &amp;...rest)</div><div class="ttdoc">Each call assigns sum of tuple elements given at the index Begin to the resulting tuple...</div><div class="ttdef"><b>Definition:</b> fold_tuples.hpp:89</div></div>
+<div class="ttc" id="structtuple__utils_1_1details_1_1tuple__fold__det_html_a128061fa9062e4b7d14b7a9e75b7c423"><div class="ttname"><a href="structtuple__utils_1_1details_1_1tuple__fold__det.html#a128061fa9062e4b7d14b7a9e75b7c423">tuple_utils::details::tuple_fold_det::fold_helper</a></div><div class="ttdeci">static void fold_helper(Res&lt; Args...&gt; &amp;result, const Res&lt; Args...&gt; &amp;first, const T&lt; Args...&gt; &amp;...rest)</div><div class="ttdoc">Each call assigns sum of tuple elements given at the index Begin to the resulting tuple...</div><div class="ttdef"><b>Definition:</b> fold_tuples.hpp:92</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 6 2013 17:33:37 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 13 2013 20:09:33 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

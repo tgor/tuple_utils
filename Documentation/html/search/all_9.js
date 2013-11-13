@@ -1,13 +1,7 @@
 var searchData=
 [
-  ['details',['details',['../namespacetuple__utils_1_1details.html',1,'tuple_utils']]],
-  ['tuple_5ffold_5fdet',['tuple_fold_det',['../structtuple__utils_1_1details_1_1tuple__fold__det.html',1,'tuple_utils::details']]],
-  ['tuple_5ffold_5fdet_3c_20end_2c_20end_2c_20args_2e_2e_2e_3e',['tuple_fold_det&lt; End, End, Args...&gt;',['../structtuple__utils_1_1details_1_1tuple__fold__det_3_01End_00_01End_00_01Args_8_8_8_4.html',1,'tuple_utils::details']]],
-  ['tuple_5futils',['tuple_utils',['../namespacetuple__utils.html',1,'']]],
-  ['tuplefromstream',['TupleFromStream',['../structTupleFromStream.html',1,'']]],
-  ['tupletypefromindices',['tupleTypeFromIndices',['../structtuple__utils_1_1details_1_1tupleTypeFromIndices.html',1,'tuple_utils::details']]],
-  ['tupletypefromindices_3c_20tuple_20_3e',['tupleTypeFromIndices&lt; Tuple &gt;',['../structtuple__utils_1_1details_1_1tupleTypeFromIndices_3_01Tuple_01_4.html',1,'tuple_utils::details']]],
-  ['tupletypefromindices_3c_20tuple_2c_20beforelast_2c_20last_20_3e',['tupleTypeFromIndices&lt; Tuple, BeforeLast, Last &gt;',['../structtuple__utils_1_1details_1_1tupleTypeFromIndices_3_01Tuple_00_01BeforeLast_00_01Last_01_4.html',1,'tuple_utils::details']]],
-  ['tupletypefromindices_3c_20tuple_2c_20first_2c_20indices_2e_2e_2e_3e',['tupleTypeFromIndices&lt; Tuple, First, Indices...&gt;',['../structtuple__utils_1_1details_1_1tupleTypeFromIndices_3_01Tuple_00_01First_00_01Indices_8_8_8_4.html',1,'tuple_utils::details']]],
-  ['type',['type',['../structbuild__indices.html#a71738c842d0187f45ac7ad119df97d8a',1,'build_indices::type()'],['../structbuild__indices_3_010_01_4.html#a4220c36f11f4923d6e687e7d893d25c0',1,'build_indices&lt; 0 &gt;::type()'],['../structtuple__utils_1_1details_1_1tupleTypeFromIndices_3_01Tuple_00_01First_00_01Indices_8_8_8_4.html#abbd04ef57a5e78c575c083e1fd28cbb6',1,'tuple_utils::details::tupleTypeFromIndices&lt; Tuple, First, Indices...&gt;::type()'],['../structtuple__utils_1_1details_1_1tupleTypeFromIndices_3_01Tuple_00_01BeforeLast_00_01Last_01_4.html#abb46c00d1c21b1cd193793a861e07522',1,'tuple_utils::details::tupleTypeFromIndices&lt; Tuple, BeforeLast, Last &gt;::type()'],['../structtuple__utils_1_1details_1_1tupleTypeFromIndices_3_01Tuple_01_4.html#adaf6733867e51cca81f55225c307a681',1,'tuple_utils::details::tupleTypeFromIndices&lt; Tuple &gt;::type()'],['../structtuple__utils_1_1details_1_1merge__tuples__type_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std7d201ea62b9d11c5cad41da6b9eebe51.html#a1b087393f28c2cbad3d5e08c05652147',1,'tuple_utils::details::merge_tuples_type&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt; &gt;::type()'],['../structtuple__utils_1_1details_1_1merge__tuples__type_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std23ad6cd5f2358135a3dce87db9845080.html#a44af2614e73c51f0d2fa500249e9896b',1,'tuple_utils::details::merge_tuples_type&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, Rest...&gt;::type()']]]
+  ['part',['part',['../structtuple__utils_1_1details_1_1partitionTuple.html#a866f6cf9645c9f78239542596b5e35c6',1,'tuple_utils::details::partitionTuple']]],
+  ['partitiontuple',['partitionTuple',['../structtuple__utils_1_1details_1_1partitionTuple.html',1,'tuple_utils::details']]],
+  ['partitiontype',['PartitionType',['../structtuple__utils_1_1details_1_1partitionTuple.html#a1a28e484dc67568dc1e3ad38b9436baa',1,'tuple_utils::details::partitionTuple']]],
+  ['print_5ftuple_2ehpp',['print_tuple.hpp',['../print__tuple_8hpp.html',1,'']]]
 ];

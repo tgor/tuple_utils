@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>TUPLEUTILS: tuple_utils::details::partitionTuple&lt; Tuple, Indices &gt; Struct Template Reference</title>
+<title>TUPLEUTILS: tuple_utils::details::partitionTuple&lt; Tuple, Sequence &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -91,62 +91,62 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">tuple_utils::details::partitionTuple&lt; Tuple, Indices &gt; Struct Template Reference</div>  </div>
+<div class="title">tuple_utils::details::partitionTuple&lt; Tuple, Sequence &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Fill std::tuple created by <a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromIndices.html" title="Struct to extract std::tuple types based on indices. ">tupleTypeFromIndices</a> with values from the base tuple.  
+<p>Fill std::tuple created by <a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromSequence.html" title="Struct to extract std::tuple types based on sequence. ">tupleTypeFromSequence</a> with values from the base tuple.  
  <a href="structtuple__utils_1_1details_1_1partitionTuple.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="make__custom__tuple_8hpp_source.html">make_custom_tuple.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a3d3a5a03886f93e1b2d095e06da5eb29"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html#a3d3a5a03886f93e1b2d095e06da5eb29">PartitionType</a> = typename <a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromIndices.html">tupleTypeFromIndices</a>&lt; Tuple, Indices...&gt;::type</td></tr>
-<tr class="memdesc:a3d3a5a03886f93e1b2d095e06da5eb29"><td class="mdescLeft">&#160;</td><td class="mdescRight">std::tuple type set by <a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromIndices.html" title="Struct to extract std::tuple types based on indices. ">tupleTypeFromIndices</a>.  <a href="#a3d3a5a03886f93e1b2d095e06da5eb29">More...</a><br/></td></tr>
-<tr class="separator:a3d3a5a03886f93e1b2d095e06da5eb29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a28e484dc67568dc1e3ad38b9436baa"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html#a1a28e484dc67568dc1e3ad38b9436baa">PartitionType</a> = typename <a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromSequence.html">tupleTypeFromSequence</a>&lt; Tuple, Sequence...&gt;::type</td></tr>
+<tr class="memdesc:a1a28e484dc67568dc1e3ad38b9436baa"><td class="mdescLeft">&#160;</td><td class="mdescRight">std::tuple type set by <a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromSequence.html" title="Struct to extract std::tuple types based on sequence. ">tupleTypeFromSequence</a>.  <a href="#a1a28e484dc67568dc1e3ad38b9436baa">More...</a><br/></td></tr>
+<tr class="separator:a1a28e484dc67568dc1e3ad38b9436baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ac6dac9eec9bf982f06e3a8a1dc5f0f3d"><td class="memTemplParams" colspan="2">template&lt;unsigned... Is&gt; </td></tr>
-<tr class="memitem:ac6dac9eec9bf982f06e3a8a1dc5f0f3d"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html#a3d3a5a03886f93e1b2d095e06da5eb29">PartitionType</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html#ac6dac9eec9bf982f06e3a8a1dc5f0f3d">part</a> (<a class="el" href="structindices.html">indices</a>&lt; Is...&gt;, Tuple source)</td></tr>
-<tr class="memdesc:ac6dac9eec9bf982f06e3a8a1dc5f0f3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and fill custom tuple.  <a href="#ac6dac9eec9bf982f06e3a8a1dc5f0f3d">More...</a><br/></td></tr>
-<tr class="separator:ac6dac9eec9bf982f06e3a8a1dc5f0f3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a866f6cf9645c9f78239542596b5e35c6"><td class="memTemplParams" colspan="2">template&lt;unsigned... Is&gt; </td></tr>
+<tr class="memitem:a866f6cf9645c9f78239542596b5e35c6"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html#a1a28e484dc67568dc1e3ad38b9436baa">PartitionType</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html#a866f6cf9645c9f78239542596b5e35c6">part</a> (sequence&lt; Is...&gt;, Tuple source)</td></tr>
+<tr class="memdesc:a866f6cf9645c9f78239542596b5e35c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and fill custom tuple.  <a href="#a866f6cf9645c9f78239542596b5e35c6">More...</a><br/></td></tr>
+<tr class="separator:a866f6cf9645c9f78239542596b5e35c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:ab72f6f9461d6b80309c86ce42eec3316"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html#ab72f6f9461d6b80309c86ce42eec3316">range</a> = <a class="el" href="indices_8hpp.html#a7298884bcc987b02cc0f826265182832">IndicesFor</a>&lt;std::tuple_size&lt;<a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html#a3d3a5a03886f93e1b2d095e06da5eb29">PartitionType</a>&gt;::value&gt;()</td></tr>
-<tr class="memdesc:ab72f6f9461d6b80309c86ce42eec3316"><td class="mdescLeft">&#160;</td><td class="mdescRight">indices pack created based on non-type template parameter Indices.  <a href="#ab72f6f9461d6b80309c86ce42eec3316">More...</a><br/></td></tr>
-<tr class="separator:ab72f6f9461d6b80309c86ce42eec3316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4aa9131fe4da3d03edc9f1bcaac34372"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html#a4aa9131fe4da3d03edc9f1bcaac34372">range</a> = typename make_sequence&lt;std::tuple_size&lt;<a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html#a1a28e484dc67568dc1e3ad38b9436baa">PartitionType</a>&gt;::value&gt;::type()</td></tr>
+<tr class="memdesc:a4aa9131fe4da3d03edc9f1bcaac34372"><td class="mdescLeft">&#160;</td><td class="mdescRight">sequence pack created based on non-type template parameter Sequence.  <a href="#a4aa9131fe4da3d03edc9f1bcaac34372">More...</a><br/></td></tr>
+<tr class="separator:a4aa9131fe4da3d03edc9f1bcaac34372"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename Tuple, int... Indices&gt;<br/>
-struct tuple_utils::details::partitionTuple&lt; Tuple, Indices &gt;</h3>
+<div class="textblock"><h3>template&lt;typename Tuple, int... Sequence&gt;<br/>
+struct tuple_utils::details::partitionTuple&lt; Tuple, Sequence &gt;</h3>
 
-<p>Fill std::tuple created by <a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromIndices.html" title="Struct to extract std::tuple types based on indices. ">tupleTypeFromIndices</a> with values from the base tuple. </p>
+<p>Fill std::tuple created by <a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromSequence.html" title="Struct to extract std::tuple types based on sequence. ">tupleTypeFromSequence</a> with values from the base tuple. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="a3d3a5a03886f93e1b2d095e06da5eb29"></a>
+<a class="anchor" id="a1a28e484dc67568dc1e3ad38b9436baa"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Tuple , int... Indices&gt; </div>
+template&lt;typename Tuple , int... Sequence&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html">tuple_utils::details::partitionTuple</a>&lt; Tuple, Indices &gt;::<a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html#a3d3a5a03886f93e1b2d095e06da5eb29">PartitionType</a> =  typename <a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromIndices.html">tupleTypeFromIndices</a>&lt;Tuple, Indices...&gt;::type</td>
+          <td class="memname">using <a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html">tuple_utils::details::partitionTuple</a>&lt; Tuple, Sequence &gt;::<a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html#a1a28e484dc67568dc1e3ad38b9436baa">PartitionType</a> =  typename <a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromSequence.html">tupleTypeFromSequence</a>&lt;Tuple, Sequence...&gt;::type</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>std::tuple type set by <a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromIndices.html" title="Struct to extract std::tuple types based on indices. ">tupleTypeFromIndices</a>. </p>
+<p>std::tuple type set by <a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromSequence.html" title="Struct to extract std::tuple types based on sequence. ">tupleTypeFromSequence</a>. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ac6dac9eec9bf982f06e3a8a1dc5f0f3d"></a>
+<a class="anchor" id="a866f6cf9645c9f78239542596b5e35c6"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Tuple , int... Indices&gt; </div>
+template&lt;typename Tuple , int... Sequence&gt; </div>
 <div class="memtemplate">
 template&lt;unsigned... Is&gt; </div>
 <table class="mlabels">
@@ -154,9 +154,9 @@ template&lt;unsigned... Is&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html#a3d3a5a03886f93e1b2d095e06da5eb29">PartitionType</a> <a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html">tuple_utils::details::partitionTuple</a>&lt; Tuple, Indices &gt;::part </td>
+          <td class="memname">static <a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html#a1a28e484dc67568dc1e3ad38b9436baa">PartitionType</a> <a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html">tuple_utils::details::partitionTuple</a>&lt; Tuple, Sequence &gt;::part </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structindices.html">indices</a>&lt; Is...&gt;&#160;</td>
+          <td class="paramtype">sequence&lt; Is...&gt;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
@@ -182,27 +182,27 @@ template&lt;unsigned... Is&gt; </div>
 <p>Used by the helper function make_custom_tuple which wraps part of its internals so they are invisible to the user. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">indices&lt;Is...&gt;</td><td>- indices pack used for expansion, contains sequence 0, 1, 2... N where N is the number of elements in the destination </td></tr>
+    <tr><td class="paramname">sequence&lt;Is...&gt;</td><td>- sequence pack used for expansion, contains sequence 0, 1, 2... N where N is the number of elements in the destination </td></tr>
     <tr><td class="paramname">source</td><td>- base tuple </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>destination - std::tuple with values taken from base tuple based on indices </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>destination - std::tuple with values taken from base tuple based on sequence </dd></dl>
 
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
-<a class="anchor" id="ab72f6f9461d6b80309c86ce42eec3316"></a>
+<a class="anchor" id="a4aa9131fe4da3d03edc9f1bcaac34372"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Tuple , int... Indices&gt; </div>
+template&lt;typename Tuple , int... Sequence&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto <a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html">tuple_utils::details::partitionTuple</a>&lt; Tuple, Indices &gt;::range = <a class="el" href="indices_8hpp.html#a7298884bcc987b02cc0f826265182832">IndicesFor</a>&lt;std::tuple_size&lt;<a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html#a3d3a5a03886f93e1b2d095e06da5eb29">PartitionType</a>&gt;::value&gt;()</td>
+          <td class="memname">constexpr auto <a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html">tuple_utils::details::partitionTuple</a>&lt; Tuple, Sequence &gt;::range = typename make_sequence&lt;std::tuple_size&lt;<a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html#a1a28e484dc67568dc1e3ad38b9436baa">PartitionType</a>&gt;::value&gt;::type()</td>
         </tr>
       </table>
   </td>
@@ -212,7 +212,7 @@ template&lt;typename Tuple , int... Indices&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>indices pack created based on non-type template parameter Indices. </p>
+<p>sequence pack created based on non-type template parameter Sequence. </p>
 
 </div>
 </div>
@@ -222,7 +222,7 @@ template&lt;typename Tuple , int... Indices&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 6 2013 17:33:37 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 13 2013 20:09:33 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

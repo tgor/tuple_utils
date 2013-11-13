@@ -102,20 +102,73 @@ Functions</h2></td></tr>
 <tr class="memitem:af489ebd8fceb4ce1e6aba8eeea4e6966"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename...&gt; class Tup, template&lt; typename...&gt; class... Res, typename... Args&gt; </td></tr>
 <tr class="memitem:af489ebd8fceb4ce1e6aba8eeea4e6966"><td class="memTemplItemLeft" align="right" valign="top">Tup&lt; Args...&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#af489ebd8fceb4ce1e6aba8eeea4e6966">fold</a> (Tup&lt; Args...&gt; &amp;first, Res&lt; Args...&gt; &amp;...rest)</td></tr>
 <tr class="separator:af489ebd8fceb4ce1e6aba8eeea4e6966"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3905235db9c5de949697c262bdad35c5"><td class="memTemplParams" colspan="2">template&lt;int... Indices, typename Tuple &gt; </td></tr>
-<tr class="memitem:a3905235db9c5de949697c262bdad35c5"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a3905235db9c5de949697c262bdad35c5">make_custom_tuple</a> (const Tuple &amp;tuple) -&gt; decltype(<a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html">details::partitionTuple</a>&lt; Tuple, Indices...&gt;::part(<a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html">details::partitionTuple</a>&lt; Tuple, Indices...&gt;::range, tuple))</td></tr>
-<tr class="separator:a3905235db9c5de949697c262bdad35c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93944899a2b6e428570e091171e25cc4"><td class="memTemplParams" colspan="2">template&lt;int... Sequence, typename Tuple &gt; </td></tr>
+<tr class="memitem:a93944899a2b6e428570e091171e25cc4"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a93944899a2b6e428570e091171e25cc4">make_custom_tuple</a> (const Tuple &amp;tuple) -&gt; decltype(<a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html">details::partitionTuple</a>&lt; Tuple, Sequence...&gt;::part(<a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html">details::partitionTuple</a>&lt; Tuple, Sequence...&gt;::range, tuple))</td></tr>
+<tr class="separator:a93944899a2b6e428570e091171e25cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a045a0093919e411236d660f447bee968"><td class="memTemplParams" colspan="2">template&lt;typename... Args1, typename... Args2, typename... Rest&gt; </td></tr>
 <tr class="memitem:a045a0093919e411236d660f447bee968"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a045a0093919e411236d660f447bee968">merge</a> (const std::tuple&lt; Args1...&gt; &amp;tuple1, const std::tuple&lt; Args2...&gt; &amp;tuple2, const Rest &amp;...rest) -&gt; typename <a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det.html">details::merge_tuples_det</a>&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, Rest...&gt;::Ret</td></tr>
 <tr class="separator:a045a0093919e411236d660f447bee968"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec674787c9a7d935f4a1380fa78bcd43"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:aec674787c9a7d935f4a1380fa78bcd43"><td class="memTemplItemLeft" align="right" valign="top">std::tuple&lt; Args...&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#aec674787c9a7d935f4a1380fa78bcd43">merge</a> (const std::tuple&lt; Args...&gt; &amp;arg)</td></tr>
-<tr class="memdesc:aec674787c9a7d935f4a1380fa78bcd43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload for calling <a class="el" href="namespacetuple__utils.html#a045a0093919e411236d660f447bee968">tuple_utils::merge</a> with only one argument Returns copy of the given argument.  <a href="#aec674787c9a7d935f4a1380fa78bcd43">More...</a><br/></td></tr>
-<tr class="separator:aec674787c9a7d935f4a1380fa78bcd43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5094849234c70f729699843100de2b8c"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a5094849234c70f729699843100de2b8c"><td class="memTemplItemLeft" align="right" valign="top">std::tuple&lt; Args...&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a5094849234c70f729699843100de2b8c">merge</a> (std::tuple&lt; Args...&gt; arg)</td></tr>
+<tr class="memdesc:a5094849234c70f729699843100de2b8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload for calling <a class="el" href="namespacetuple__utils.html#a045a0093919e411236d660f447bee968">tuple_utils::merge</a> with only one argument Special case which returns only a copy of the given argument.  <a href="#a5094849234c70f729699843100de2b8c">More...</a><br/></td></tr>
+<tr class="separator:a5094849234c70f729699843100de2b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb8f8ac0741e72f83159da70de3fb586"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#aeb8f8ac0741e72f83159da70de3fb586">change_delim</a> (std::string new_delim)</td></tr>
+<tr class="separator:aeb8f8ac0741e72f83159da70de3fb586"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7f01aa4fc0d839d3db773676b722dc0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#af7f01aa4fc0d839d3db773676b722dc0">change_braces</a> (std::string new_lbrace, std::string new_rbrace)</td></tr>
+<tr class="separator:af7f01aa4fc0d839d3db773676b722dc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24d0ca82e053f1786ccf978924e2edfa"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a24d0ca82e053f1786ccf978924e2edfa"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a24d0ca82e053f1786ccf978924e2edfa">to_string</a> (const std::tuple&lt; Args...&gt; &amp;tuple)</td></tr>
+<tr class="separator:a24d0ca82e053f1786ccf978924e2edfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a719394a97da508fa7292001b64fc7043"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a719394a97da508fa7292001b64fc7043">to_string</a> (const std::tuple&lt;&gt; &amp;)</td></tr>
+<tr class="separator:a719394a97da508fa7292001b64fc7043"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Utilities for tuples manipulation. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="af7f01aa4fc0d839d3db773676b722dc0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tuple_utils::change_braces </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>new_lbrace</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>new_rbrace</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aeb8f8ac0741e72f83159da70de3fb586"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tuple_utils::change_delim </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>new_delim</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p></p>
+
+</div>
+</div>
 <a class="anchor" id="af489ebd8fceb4ce1e6aba8eeea4e6966"></a>
 <div class="memitem">
 <div class="memproto">
@@ -167,28 +220,28 @@ template&lt;template&lt; typename...&gt; class Tup, template&lt; typename...&gt;
 </div><!-- fragment --> 
 </div>
 </div>
-<a class="anchor" id="a3905235db9c5de949697c262bdad35c5"></a>
+<a class="anchor" id="a93944899a2b6e428570e091171e25cc4"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int... Indices, typename Tuple &gt; </div>
+template&lt;int... Sequence, typename Tuple &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">auto tuple_utils::make_custom_tuple </td>
           <td>(</td>
           <td class="paramtype">const Tuple &amp;&#160;</td>
           <td class="paramname"><em>tuple</em></td><td>)</td>
-          <td> -&gt; decltype( details::partitionTuple&lt;Tuple, Indices...&gt;::part(details::partitionTuple&lt;Tuple, Indices...&gt;::range, tuple) )
+          <td> -&gt; decltype( details::partitionTuple&lt;Tuple, Sequence...&gt;::part(details::partitionTuple&lt;Tuple, Sequence...&gt;::range, tuple) )
 </td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p></p>
-<p>Create tuple from existing tuple based on given indices. Based on the type of tuple given as an argument and indices specified as a template parameters returns a std::tuple with types and values corresponding to the base tuple. It is possible to use the same indices more than once. </p>
+<p>Create tuple from existing tuple based on given sequence. Based on the type of tuple given as an argument and sequence specified as a template parameters returns a std::tuple with types and values corresponding to the base tuple. It is possible to use the same sequence more than once. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Indices</td><td>- integers indicating which base tuple values are to be used in constructing custom tuple </td></tr>
+    <tr><td class="paramname">Sequence</td><td>- integers indicating which base tuple values are to be used in constructing custom tuple </td></tr>
   </table>
   </dd>
 </dl>
@@ -242,7 +295,7 @@ template&lt;typename... Args1, typename... Args2, typename... Rest&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aec674787c9a7d935f4a1380fa78bcd43"></a>
+<a class="anchor" id="a5094849234c70f729699843100de2b8c"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -251,21 +304,55 @@ template&lt;typename... Args&gt; </div>
         <tr>
           <td class="memname">std::tuple&lt;Args...&gt; tuple_utils::merge </td>
           <td>(</td>
-          <td class="paramtype">const std::tuple&lt; Args...&gt; &amp;&#160;</td>
+          <td class="paramtype">std::tuple&lt; Args...&gt;&#160;</td>
           <td class="paramname"><em>arg</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Overload for calling <a class="el" href="namespacetuple__utils.html#a045a0093919e411236d660f447bee968">tuple_utils::merge</a> with only one argument Returns copy of the given argument. </p>
+<p>Overload for calling <a class="el" href="namespacetuple__utils.html#a045a0093919e411236d660f447bee968">tuple_utils::merge</a> with only one argument Special case which returns only a copy of the given argument. </p>
+
+</div>
+</div>
+<a class="anchor" id="a24d0ca82e053f1786ccf978924e2edfa"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string tuple_utils::to_string </td>
+          <td>(</td>
+          <td class="paramtype">const std::tuple&lt; Args...&gt; &amp;&#160;</td>
+          <td class="paramname"><em>tuple</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a719394a97da508fa7292001b64fc7043"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string tuple_utils::to_string </td>
+          <td>(</td>
+          <td class="paramtype">const std::tuple&lt;&gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 6 2013 17:33:37 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 13 2013 20:09:33 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

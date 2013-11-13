@@ -97,9 +97,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__type.html">tuple_utils::details::merge_tuples_type&lt;&gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__type_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std7d201ea62b9d11c5cad41da6b9eebe51.html">tuple_utils::details::merge_tuples_type&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__type_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std23ad6cd5f2358135a3dce87db9845080.html">tuple_utils::details::merge_tuples_type&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, Rest...&gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain type of few std::tuples merged together For example merge of std::tuple&lt;int, float, double&gt;, std::tuple&lt;std::string&gt; and std::tuple&lt;long, short&gt; will yield type std::tuple&lt;int, float, double, std::string, long, short&gt;  <a href="structtuple__utils_1_1details_1_1merge__tuples__type_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std23ad6cd5f2358135a3dce87db9845080.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__type_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std7d201ea62b9d11c5cad41da6b9eebe51.html">tuple_utils::details::merge_tuples_type&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get type of two std::tuples merged together Last recursive step of merge_tuples_type&lt;&gt;::type where type member is std::tuple of types from both tuples given as parameters.  <a href="structtuple__utils_1_1details_1_1merge__tuples__type_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std7d201ea62b9d11c5cad41da6b9eebe51.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det.html">tuple_utils::details::merge_tuples_det&lt;&gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,10 +127,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a045a0093919e411236d660f447bee968"><td class="memTemplParams" colspan="2">template&lt;typename... Args1, typename... Args2, typename... Rest&gt; </td></tr>
 <tr class="memitem:a045a0093919e411236d660f447bee968"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a045a0093919e411236d660f447bee968">tuple_utils::merge</a> (const std::tuple&lt; Args1...&gt; &amp;tuple1, const std::tuple&lt; Args2...&gt; &amp;tuple2, const Rest &amp;...rest) -&gt; typename details::merge_tuples_det&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, Rest...&gt;::Ret</td></tr>
 <tr class="separator:a045a0093919e411236d660f447bee968"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec674787c9a7d935f4a1380fa78bcd43"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:aec674787c9a7d935f4a1380fa78bcd43"><td class="memTemplItemLeft" align="right" valign="top">std::tuple&lt; Args...&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#aec674787c9a7d935f4a1380fa78bcd43">tuple_utils::merge</a> (const std::tuple&lt; Args...&gt; &amp;arg)</td></tr>
-<tr class="memdesc:aec674787c9a7d935f4a1380fa78bcd43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload for calling <a class="el" href="namespacetuple__utils.html#a045a0093919e411236d660f447bee968">tuple_utils::merge</a> with only one argument Returns copy of the given argument.  <a href="#aec674787c9a7d935f4a1380fa78bcd43">More...</a><br/></td></tr>
-<tr class="separator:aec674787c9a7d935f4a1380fa78bcd43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5094849234c70f729699843100de2b8c"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a5094849234c70f729699843100de2b8c"><td class="memTemplItemLeft" align="right" valign="top">std::tuple&lt; Args...&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a5094849234c70f729699843100de2b8c">tuple_utils::merge</a> (std::tuple&lt; Args...&gt; arg)</td></tr>
+<tr class="memdesc:a5094849234c70f729699843100de2b8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload for calling <a class="el" href="namespacetuple__utils.html#a045a0093919e411236d660f447bee968">tuple_utils::merge</a> with only one argument Special case which returns only a copy of the given argument.  <a href="#a5094849234c70f729699843100de2b8c">More...</a><br/></td></tr>
+<tr class="separator:a5094849234c70f729699843100de2b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd></dd></dl>
@@ -136,7 +138,7 @@ Functions</h2></td></tr>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 6 2013 17:33:37 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 13 2013 20:09:33 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

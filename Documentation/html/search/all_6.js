@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['next',['next',['../structindices.html#ab4e3d568d759f3036bc9250bf9c7a928',1,'indices']]]
+  ['lbrace',['lbrace',['../structtuple__utils_1_1details_1_1tuple__printer.html#afaf4f8ccc7f46b6ec75a043882f15554',1,'tuple_utils::details::tuple_printer']]]
 ];
