@@ -34,10 +34,15 @@ struct tuple_printer
             >
     struct tuple_printer_det
     {
-        static std::basic_ostream<CharT, Traits>& execute(std::basic_ostream<CharT, Traits>& stream, const Type& tuple, std::string& delim)
+        static std::basic_ostream<CharT, Traits>& 
+        execute(std::basic_ostream<CharT, Traits>& stream, const Type& tuple, std::string& delim)
         {
             stream << std::get<Start>(tuple) << delim;
-            tuple_printer_det<CharT, Traits, Start + 1, Size, Type>::execute(stream, tuple, tuple_printer::delim);
+            tuple_printer_det<CharT, Traits, Start + 1, Size, Type>::execute(
+                stream, 
+                tuple, 
+                tuple_printer::delim
+            );
             return stream;
         }
     };
@@ -50,7 +55,8 @@ struct tuple_printer
             >
     struct tuple_printer_det<CharT, Traits, Size, Size, Type>
     {
-        static std::basic_ostream<CharT, Traits>& execute(std::basic_ostream<CharT, Traits>& stream, const Type& tuple, std::string&)
+        static std::basic_ostream<CharT, Traits>& 
+        execute(std::basic_ostream<CharT, Traits>& stream, const Type& tuple, std::string&)
         {
             stream << std::get<Size>(tuple) << rbrace;
             return stream;
@@ -99,11 +105,18 @@ template <
         typename Traits,
         typename... Args
         >
-std::basic_ostream<CharT, Traits>& operator<< (std::basic_ostream<CharT, Traits>& stream, const std::tuple<Args...>& tuple_arg)
+std::basic_ostream<CharT, Traits>& 
+operator<< (std::basic_ostream<CharT, Traits>& stream, const std::tuple<Args...>& tuple_arg)
 {
     stream << tuple_utils::details::tuple_printer::lbrace;
-    tuple_utils::details::tuple_printer::tuple_printer_det<CharT, Traits, 0, sizeof...(Args) - 1, std::tuple<Args...>>
-        ::execute(stream, tuple_arg, tuple_utils::details::tuple_printer::delim);
+    
+    tuple_utils::details::tuple_printer::tuple_printer_det<
+        CharT, 
+        Traits, 
+        0, 
+        sizeof...(Args) - 1, 
+        std::tuple<Args...>
+    >::execute(stream, tuple_arg, tuple_utils::details::tuple_printer::delim);
 
     return stream;
 }
@@ -113,7 +126,8 @@ template <
         typename CharT,
         typename Traits
         >
-std::basic_ostream<CharT, Traits>& operator<< (std::basic_ostream<CharT, Traits>& stream, const std::tuple<>&)
+std::basic_ostream<CharT, Traits>& 
+operator<< (std::basic_ostream<CharT, Traits>& stream, const std::tuple<>&)
 {
     return stream;
 }
