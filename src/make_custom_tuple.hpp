@@ -19,8 +19,8 @@ namespace details
 
 /**
  *@brief Assign value of the second argument to the first one.
- *Templated helper function implementing simple assignment. It can be expanded with parameter packet expansion which is
- *impossible for assignment operator.
+ *Templated helper function implementing simple assignment. It can be expanded with parameter 
+ *packet expansion which is impossible for assignment operator.
  *@param left - reference to assignee
  *@param right - const reference to assignor
  */
@@ -32,7 +32,8 @@ void assign(L& left, const R& right)
 
 /**
  *@brief Struct to extract std::tuple types based on sequence.
- *Extract std::tuple types from type template parameter Tuple based on variadic non-type parameter Sequence
+ *Extract std::tuple types from type template parameter Tuple based on variadic non-type parameter 
+ *Sequence
  */
 template <
         typename Tuple,
@@ -67,8 +68,12 @@ template <
         >
 struct tupleTypeFromSequence<Tuple, BeforeLast, Last>
 {
-    static_assert(BeforeLast < std::tuple_size<Tuple>::value && Last < std::tuple_size<Tuple>::value, "Too big indice");
-    using type = std::tuple<typename std::tuple_element<BeforeLast, Tuple>::type, typename std::tuple_element<Last, Tuple>::type>;
+    static_assert(BeforeLast < std::tuple_size<Tuple>::value && 
+        Last < std::tuple_size<Tuple>::value, "Too big indice");
+    using type = std::tuple<
+        typename std::tuple_element<BeforeLast, Tuple>::type, 
+        typename std::tuple_element<Last, Tuple>::type
+    >;
 };
 
 /**
@@ -98,9 +103,10 @@ struct partitionTuple
 
     /**
      *@brief Create and fill custom tuple.
-     *Used by the helper function make_custom_tuple which wraps part of its internals so they are invisible to the user.
-     *@param sequence<Is...> - sequence pack used for expansion, contains sequence 0, 1, 2... N where N is the
-     * number of elements in the destination
+     *Used by the helper function make_custom_tuple which wraps part of its internals so they are 
+     *invisible to the user.
+     *@param sequence<Is...> - sequence pack used for expansion, contains sequence 0, 1, 2... N 
+     *where N is the number of elements in the destination
      *@param source - base tuple
      *@return destination - std::tuple with values taken from base tuple based on sequence
      */
@@ -109,9 +115,10 @@ struct partitionTuple
     {
         PartitionType destination;
 
-        /* unused[] - dummy type used for parameter pack expansion at compile time. Compiler tries to fill unused, but it must first
-          evaluate first coma operator operand which performs assignment. Whole operation is repeated with parameter pack expansion
-          up to the last value in the sequence<Is> range */
+        /* unused[] - dummy type used for parameter pack expansion at compile time. Compiler tries 
+        to fill unused, but it must first evaluate first coma operator operand which performs 
+        assignment. Whole operation is repeated with parameter pack expansion up to the last value 
+        in the sequence<Is> range */
         int unused[] = {0, (assign(std::get<Is>(destination), std::get<Sequence>(source)), 1)...};
         (void)unused;
 
@@ -124,16 +131,19 @@ struct partitionTuple
 
 /**
  *@brief Create tuple from existing tuple based on given sequence.
- *Based on the type of tuple given as an argument and sequence specified as a template parameters returns
- *a std::tuple with types and values corresponding to the base tuple. It is possible to use the same sequence more than once.
- *@tparam Sequence - integers indicating which base tuple values are to be used in constructing custom tuple
+ *Based on the type of tuple given as an argument and sequence specified as a template parameters 
+ *returns a std::tuple with types and values corresponding to the base tuple. It is possible to use 
+ *the same sequence more than once.
+ *@tparam Sequence - integers indicating which base tuple values are to be used in constructing 
+ *custom tuple
  *@param tuple - reference to constant std::tuple
  *@return custom std::tuple
  *
  * Example Usage:
  * @code
  *    auto base_tuple = std::make_tuple(2, 4.4, "string");
- *    auto custom_tuple = tuple_util::make_custom_tuple<0, 0, 1>(base_tuple); //create std::tuple<int, int, float> custom_tuple{2, 2, 4.4};
+ *    auto custom_tuple = tuple_util::make_custom_tuple<0, 0, 1>(base_tuple); 
+ *    //create std::tuple<int, int, float> custom_tuple{2, 2, 4.4};
  * @endcode
  */
 template <
@@ -141,9 +151,16 @@ template <
         typename Tuple
         >
 auto make_custom_tuple(const Tuple& tuple)
--> decltype( details::partitionTuple<Tuple, Sequence...>::part(details::partitionTuple<Tuple, Sequence...>::range, tuple) )
+-> decltype( 
+    details::partitionTuple<Tuple, Sequence...>::part(
+        details::partitionTuple<Tuple, Sequence...>::range, 
+        tuple
+    ))
 {
-    return details::partitionTuple<Tuple, Sequence...>::part(details::partitionTuple<Tuple, Sequence...>::range, tuple);
+    return details::partitionTuple<Tuple, Sequence...>::part(
+        details::partitionTuple<Tuple, Sequence...>::range, 
+        tuple
+    );
 }
 
 } //namespace tuple_utils
