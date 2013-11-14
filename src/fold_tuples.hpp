@@ -91,7 +91,10 @@ struct tuple_fold_det
             >
     static void fold_helper(Res<Args...>& result, const Res<Args...>& first, const T<Args...>&... rest)
     {
-        tuple_utils::details::assign(std::get<Begin>(result), add_helper(std::get<Begin>(first), std::get<Begin>(rest)...));
+        tuple_utils::details::assign(
+                std::get<Begin>(result), 
+                add_helper(std::get<Begin>(first), std::get<Begin>(rest)...)
+        );
         tuple_fold_det<Begin + 1, End, Args...>::fold_helper(result, first, rest...);
     }
 };
@@ -107,7 +110,8 @@ template <
 struct tuple_fold_det<End, End, Args...>
 {
     /**
-     *@brief Called for the std::tuple_size<X>::value index, which is one past last tuple element, thus in this case fold_helper is no-op
+     *@brief Called for the std::tuple_size<X>::value index, which is one past last tuple element, 
+     *thus in this case fold_helper is no-op
      */
     template <
             template<typename...> class Res,
@@ -122,19 +126,22 @@ struct tuple_fold_det<End, End, Args...>
 
 /**
  *@brief Folds few tuples into one by adding elements on each position from those tuples.
- *Used to produce std::tuple in which each element is equal to the sum of corresponding elements from std::tuples given as an arguments
+ *Used to produce std::tuple in which each element is equal to the sum of corresponding elements 
+ *from std::tuples given as an arguments
  *@tparam Tup - std::tuple type given as a first argument
  *@tparam Res... - unknown number of std::tuples types given as other arguments
  *@tparam Args... - types of the elements stored by each tuple
  *@param first - std::tuple given as a first argument
  *@param rest - unknown number of std::tuples, must be exactly the same type as in the 'first' argument
- *@return std::tuple in which each position is the sum of a values from the same positions from the tuples given as arguments
+ *@return std::tuple in which each position is the sum of a values from the same positions from 
+ *the tuples given as arguments
  *
  * Example Usage:
  * @code
  *    auto tuple_arg1 = std::make_tuple(2, 4.4, "hello ");
  *    auto tuple_arg2 = std::make_tuple(3, 0.1, "world");
- *    auto result = tuple_utils::fold(tuple_arg1, tuple_arg2); // result is equal to std::tuple<int, double, const char*> result {5, 4.5, "hello world}
+ *    auto result = tuple_utils::fold(tuple_arg1, tuple_arg2); 
+ *    // result is equal to std::tuple<int, double, const char*> result {5, 4.5, "hello world}
  * @endcode
  */
 template <
