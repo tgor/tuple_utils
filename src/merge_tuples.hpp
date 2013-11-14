@@ -134,7 +134,13 @@ auto merge(const std::tuple<Args1...>& tuple1, const std::tuple<Args2...>& tuple
 {
     using Ret = typename details::merge_tuples_det<std::tuple<Args1...>, std::tuple<Args2...>, Rest...>::Ret;
     Ret result;
-    details::merge_tuples_det<std::tuple<Args1...>, std::tuple<Args2...>, Rest...>::template merge_helper<Ret, 0>::go(result, tuple1, tuple2, rest...);
+    
+    details::merge_tuples_det<
+        std::tuple<Args1...>, 
+        std::tuple<Args2...>, 
+        Rest...
+    >::template merge_helper<Ret, 0>::go(result, tuple1, tuple2, rest...);
+    
     return result;
 }
 
