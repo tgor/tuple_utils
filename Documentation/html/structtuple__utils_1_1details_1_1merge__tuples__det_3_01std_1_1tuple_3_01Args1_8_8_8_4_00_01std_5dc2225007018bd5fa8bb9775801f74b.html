@@ -94,15 +94,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Helper struct used by the <a class="el" href="namespacetuple__utils.html#a045a0093919e411236d660f447bee968">tuple_utils::merge</a> to fill std::tuple which is returned as a result.  
+ <a href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_5dc2225007018bd5fa8bb9775801f74b.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="merge__tuples_8hpp_source.html">merge_tuples.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_a43a45c13b9ee7cb685e430f08c0b85d.html">merge_helper</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper struct which is used to fill std::tuple returned by the merge function Recursively call <a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_92da8c001722a49f0fab8a06bfc7f291.html" title="For each tuple from merge function arguments copy its content to the resulting std::tuple Called recu...">merge_unroll</a> for each std::tuple given as argument to the merge function.  <a href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_a43a45c13b9ee7cb685e430f08c0b85d.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_92da8c001722a49f0fab8a06bfc7f291.html">merge_unroll</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For each tuple from merge function arguments copy its content to the resulting std::tuple Called recursively with the recursion depth equal to the size of currently processed std::tuple (i.e.  <a href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_92da8c001722a49f0fab8a06bfc7f291.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_edaa6b545f3890910e317b0a3f3ac160.html">merge_unroll&lt; ResultBegin, ArgEnd, ArgEnd &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_4bfc9ac2f71511cf4dc99a19ac24aba1.html">merge_unroll&lt; ResultCurr, ArgEnd, ArgEnd &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Last step in the loop unroll, ends processing of one of the merge function arguments Hit when currently used position is the same as the size of the argument.  <a href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_4bfc9ac2f71511cf4dc99a19ac24aba1.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -110,7 +116,12 @@ Public Types</h2></td></tr>
 <tr class="memitem:a5cd016bbbd89dff170b3e898c71ee6d2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_5dc2225007018bd5fa8bb9775801f74b.html#a5cd016bbbd89dff170b3e898c71ee6d2">Ret</a> = typename <a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__type.html">merge_tuples_type</a>&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, RestArgs...&gt;::type</td></tr>
 <tr class="separator:a5cd016bbbd89dff170b3e898c71ee6d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename... Args1, typename... Args2, typename... RestArgs&gt;<br/>
+struct tuple_utils::details::merge_tuples_det&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, RestArgs...&gt;</h3>
+
+<p>Helper struct used by the <a class="el" href="namespacetuple__utils.html#a045a0093919e411236d660f447bee968">tuple_utils::merge</a> to fill std::tuple which is returned as a result. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a class="anchor" id="a5cd016bbbd89dff170b3e898c71ee6d2"></a>
 <div class="memitem">
 <div class="memproto">
@@ -131,7 +142,7 @@ template&lt;typename... Args1, typename... Args2, typename... RestArgs&gt; </div
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 13 2013 20:09:33 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 14 2013 19:29:34 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

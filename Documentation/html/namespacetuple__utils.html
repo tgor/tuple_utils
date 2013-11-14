@@ -216,7 +216,8 @@ template&lt;template&lt; typename...&gt; class Tup, template&lt; typename...&gt;
 <p>Example Usage: </p>
 <div class="fragment"><div class="line"><span class="keyword">auto</span> tuple_arg1 = std::make_tuple(2, 4.4, <span class="stringliteral">&quot;hello &quot;</span>);</div>
 <div class="line"><span class="keyword">auto</span> tuple_arg2 = std::make_tuple(3, 0.1, <span class="stringliteral">&quot;world&quot;</span>);</div>
-<div class="line"><span class="keyword">auto</span> result = <a class="code" href="namespacetuple__utils.html#af489ebd8fceb4ce1e6aba8eeea4e6966">tuple_utils::fold</a>(tuple_arg1, tuple_arg2); <span class="comment">// result is equal to std::tuple&lt;int, double, const char*&gt; result {5, 4.5, &quot;hello world}</span></div>
+<div class="line"><span class="keyword">auto</span> result = <a class="code" href="namespacetuple__utils.html#af489ebd8fceb4ce1e6aba8eeea4e6966">tuple_utils::fold</a>(tuple_arg1, tuple_arg2); </div>
+<div class="line"><span class="comment">// result is equal to std::tuple&lt;int, double, const char*&gt; result {5, 4.5, &quot;hello world}</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -231,7 +232,11 @@ template&lt;int... Sequence, typename Tuple &gt; </div>
           <td>(</td>
           <td class="paramtype">const Tuple &amp;&#160;</td>
           <td class="paramname"><em>tuple</em></td><td>)</td>
-          <td> -&gt; decltype( details::partitionTuple&lt;Tuple, Sequence...&gt;::part(details::partitionTuple&lt;Tuple, Sequence...&gt;::range, tuple) )
+          <td> -&gt; decltype( 
+    details::partitionTuple&lt;Tuple, Sequence...&gt;::part(
+        details::partitionTuple&lt;Tuple, Sequence...&gt;::range, 
+        tuple
+    ))
 </td>
         </tr>
       </table>
@@ -254,7 +259,8 @@ template&lt;int... Sequence, typename Tuple &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>custom std::tuple</dd></dl>
 <p>Example Usage: </p>
 <div class="fragment"><div class="line"><span class="keyword">auto</span> base_tuple = std::make_tuple(2, 4.4, <span class="stringliteral">&quot;string&quot;</span>);</div>
-<div class="line"><span class="keyword">auto</span> custom_tuple = tuple_util::make_custom_tuple&lt;0, 0, 1&gt;(base_tuple); <span class="comment">//create std::tuple&lt;int, int, float&gt; custom_tuple{2, 2, 4.4};</span></div>
+<div class="line"><span class="keyword">auto</span> custom_tuple = tuple_util::make_custom_tuple&lt;0, 0, 1&gt;(base_tuple); </div>
+<div class="line"><span class="comment">//create std::tuple&lt;int, int, float&gt; custom_tuple{2, 2, 4.4};</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -292,7 +298,21 @@ template&lt;typename... Args1, typename... Args2, typename... Rest&gt; </div>
 </div><div class="memdoc">
 
 <p></p>
-
+<p>Merge few std::tuples into one using their values Takes any number of heterogenous std::tuples and returns an aggregate std::tuple that contains each value from the given arguments, in order. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tuple1,tuple2,rest...</td><td>- at least two possibly heterogenous std::tuples </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::tuple with values from all std::tuples passed as arguments</dd></dl>
+<p>Example Usage: </p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> t1 = std::make_tuple(1.1, 2, <span class="charliteral">&#39;3&#39;</span>);</div>
+<div class="line"><span class="keyword">auto</span> t2 = std::make_tuple(4, 5);</div>
+<div class="line"><span class="keyword">auto</span> t3 = std::make_tuple(<span class="stringliteral">&quot;hello&quot;</span>, <span class="stringliteral">&quot;world&quot;</span>);</div>
+<div class="line"><span class="keyword">auto</span> res = <a class="code" href="namespacetuple__utils.html#a045a0093919e411236d660f447bee968">merge</a>(t1, t2, t2); <span class="comment">//res is a std::tuple&lt;float, int, char, int, int, const char*, const char*&gt;</span></div>
+<div class="line"><span class="comment">//with values {1.1, 2, &#39;3&#39;, 4, 5, &quot;hello&quot;, &quot;world&quot;};</span></div>
+</div><!-- fragment --> 
 </div>
 </div>
 <a class="anchor" id="a5094849234c70f729699843100de2b8c"></a>
@@ -352,7 +372,7 @@ template&lt;typename... Args&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 13 2013 20:09:33 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 14 2013 19:29:34 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

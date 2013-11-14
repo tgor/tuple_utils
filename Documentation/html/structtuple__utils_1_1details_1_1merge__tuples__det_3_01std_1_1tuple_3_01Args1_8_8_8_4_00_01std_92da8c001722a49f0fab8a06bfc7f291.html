@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>TUPLEUTILS: tuple_utils::details::merge_tuples_det&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, RestArgs...&gt;::merge_unroll&lt; ResultBegin, ArgBegin, ArgEnd &gt; Struct Template Reference</title>
+<title>TUPLEUTILS: tuple_utils::details::merge_tuples_det&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, RestArgs...&gt;::merge_unroll&lt; ResultCurr, ArgBegin, ArgEnd &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,26 +89,45 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">tuple_utils::details::merge_tuples_det&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, RestArgs...&gt;::merge_unroll&lt; ResultBegin, ArgBegin, ArgEnd &gt; Struct Template Reference</div>  </div>
+<div class="title">tuple_utils::details::merge_tuples_det&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, RestArgs...&gt;::merge_unroll&lt; ResultCurr, ArgBegin, ArgEnd &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>For each tuple from merge function arguments copy its content to the resulting std::tuple Called recursively with the recursion depth equal to the size of currently processed std::tuple (i.e.  
+ <a href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_92da8c001722a49f0fab8a06bfc7f291.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="merge__tuples_8hpp_source.html">merge_tuples.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a7d888b84bf067d283c9a57ca8718b443"><td class="memTemplParams" colspan="2">template&lt;typename... ResArgs, typename... VarArgs&gt; </td></tr>
-<tr class="memitem:a7d888b84bf067d283c9a57ca8718b443"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_92da8c001722a49f0fab8a06bfc7f291.html#a7d888b84bf067d283c9a57ca8718b443">go</a> (std::tuple&lt; ResArgs...&gt; &amp;result, const std::tuple&lt; VarArgs...&gt; &amp;arg)</td></tr>
-<tr class="separator:a7d888b84bf067d283c9a57ca8718b443"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a958bb00c82818933e766031222cebe7f"><td class="memTemplParams" colspan="2">template&lt;typename... ResArgs, typename... VarArgs&gt; </td></tr>
+<tr class="memitem:a958bb00c82818933e766031222cebe7f"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_92da8c001722a49f0fab8a06bfc7f291.html#a958bb00c82818933e766031222cebe7f">go</a> (std::tuple&lt; ResArgs...&gt; &amp;result, const std::tuple&lt; VarArgs...&gt; &amp;arg)</td></tr>
+<tr class="memdesc:a958bb00c82818933e766031222cebe7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy one value from arg to the result, called recursively.  <a href="#a958bb00c82818933e766031222cebe7f">More...</a><br/></td></tr>
+<tr class="separator:a958bb00c82818933e766031222cebe7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a7d888b84bf067d283c9a57ca8718b443"></a>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename... Args1, typename... Args2, typename... RestArgs&gt;<br/>
+template&lt;std::size_t ResultCurr, std::size_t ArgBegin, std::size_t ArgEnd&gt;<br/>
+struct tuple_utils::details::merge_tuples_det&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, RestArgs...&gt;::merge_unroll&lt; ResultCurr, ArgBegin, ArgEnd &gt;</h3>
+
+<p>For each tuple from merge function arguments copy its content to the resulting std::tuple Called recursively with the recursion depth equal to the size of currently processed std::tuple (i.e. </p>
+<p>ArgEnd value). In each step copy one value from processed std::tuple to the result and call <a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_92da8c001722a49f0fab8a06bfc7f291.html" title="For each tuple from merge function arguments copy its content to the resulting std::tuple Called recu...">merge_unroll</a> for the next element, until the end of the currently processed std::tuple. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ResultCurr</td><td>- current position in result-from-merge std::tuple, each time updated by 1 </td></tr>
+    <tr><td class="paramname">ArgBegin</td><td>- current position in the current std::tuple given as merge argument </td></tr>
+    <tr><td class="paramname">ArgEnd</td><td>- size of one of current std::tuple given as merge argument, used to stop unrolling </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a958bb00c82818933e766031222cebe7f"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename... Args1, typename... Args2, typename... RestArgs&gt; </div>
 <div class="memtemplate">
-template&lt;std::size_t ResultBegin, std::size_t ArgBegin, std::size_t ArgEnd&gt; </div>
+template&lt;std::size_t ResultCurr, std::size_t ArgBegin, std::size_t ArgEnd&gt; </div>
 <div class="memtemplate">
 template&lt;typename... ResArgs, typename... VarArgs&gt; </div>
 <table class="mlabels">
@@ -116,7 +135,7 @@ template&lt;typename... ResArgs, typename... VarArgs&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void <a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det.html">tuple_utils::details::merge_tuples_det</a>&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, RestArgs...&gt;::merge_unroll&lt; ResultBegin, ArgBegin, ArgEnd &gt;::go </td>
+          <td class="memname">static void <a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det.html">tuple_utils::details::merge_tuples_det</a>&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, RestArgs...&gt;::merge_unroll&lt; ResultCurr, ArgBegin, ArgEnd &gt;::go </td>
           <td>(</td>
           <td class="paramtype">std::tuple&lt; ResArgs...&gt; &amp;&#160;</td>
           <td class="paramname"><em>result</em>, </td>
@@ -140,6 +159,9 @@ template&lt;typename... ResArgs, typename... VarArgs&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Copy one value from arg to the result, called recursively. </p>
+<p>Copy value from the ArgBegin position from arg to the result at the ResultCurr position. Recursively called for the next element, so it increases both ResultCurr and ArgBegin </p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
@@ -148,7 +170,7 @@ template&lt;typename... ResArgs, typename... VarArgs&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 13 2013 20:09:33 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 14 2013 19:29:34 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>
