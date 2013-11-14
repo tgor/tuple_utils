@@ -49,7 +49,10 @@ void TestMergeTuple::test1tuple()
     std::tuple<int, long, char, double, int> arg{1, 22, 'a', 2.2, 4};
     auto result = tuple_utils::merge(arg);
 
-    static_assert(true == std::is_same<std::tuple<int, long, char, double, int>, decltype(result)>::value, "Type mismatch");
+    static_assert(
+        true == std::is_same<std::tuple<int, long, char, double, int>, decltype(result)>::value, 
+        "Type mismatch"
+    );
     CPPUNIT_ASSERT(5 == std::tuple_size<decltype(result)>::value);
     CPPUNIT_ASSERT(result == arg);
 }
@@ -60,7 +63,10 @@ void TestMergeTuple::test2tuples()
     std::tuple<int, int> arg2 {12, 1};
     auto result = tuple_utils::merge(arg1, arg2);
 
-    static_assert(true == std::is_same<std::tuple<int, int, int, int>, decltype(result)>::value, "Type mismatch");
+    static_assert(
+        true == std::is_same<std::tuple<int, int, int, int>, decltype(result)>::value,
+        "Type mismatch"
+    );
     CPPUNIT_ASSERT(4 == std::tuple_size<decltype(result)>::value);
     CPPUNIT_ASSERT(2 == std::get<0>(result));
     CPPUNIT_ASSERT(21 == std::get<1>(result));
@@ -75,8 +81,13 @@ void TestMergeTuple::test3tuples()
     std::tuple<int, short> arg3 {0, 1};
     auto result = tuple_utils::merge(arg1, arg2, arg3);
 
-    static_assert(true == std::is_same<std::tuple<int, int, long, std::string, std::string, long, std::string, int, int, short>,
-                  decltype(result)>::value, "Type mismatch");
+    static_assert(
+        true == std::is_same<std::tuple<
+            int, int, long, std::string, std::string, long, std::string, int, int, short
+        >, decltype(result)>::value, 
+        "Type mismatch"
+    );
+                  
     CPPUNIT_ASSERT(10 == std::tuple_size<decltype(result)>::value);
     CPPUNIT_ASSERT(2 == std::get<0>(result));
     CPPUNIT_ASSERT(2 == std::get<1>(result));
@@ -98,8 +109,13 @@ void TestMergeTuple::test4tuples()
     std::tuple<short, std::string, int, short> arg4 {10, ";", 20, 11};
     auto result = tuple_utils::merge(arg1, arg2, arg3, arg4);
 
-    static_assert(true == std::is_same<std::tuple<std::string, short, std::string, short, long, long, short, short, std::string, int, short>,
-                  decltype(result)>::value, "Type mismatch");
+    static_assert(
+        true == std::is_same<std::tuple<
+            std::string, short, std::string, short, long, long, short, short, std::string, int, short
+        >, decltype(result)>::value,
+        "Type mismatch"
+    );
+        
     CPPUNIT_ASSERT(11 == std::tuple_size<decltype(result)>::value);
     CPPUNIT_ASSERT("mary" == std::get<0>(result));
     CPPUNIT_ASSERT(24 == std::get<1>(result));
@@ -121,7 +137,10 @@ void TestMergeTuple::testEmptyTuplesBegin()
     std::tuple<long, long, short> arg3 {33, 4, 6};
     auto result = tuple_utils::merge(arg1, arg2, arg3);
 
-    static_assert(true == std::is_same<std::tuple<std::string, short, long, long, short>, decltype(result)>::value, "Type mismatch");
+    static_assert(
+        true == std::is_same<std::tuple<std::string, short, long, long, short>, decltype(result)>::value,
+        "Type mismatch"
+    );
     CPPUNIT_ASSERT(5 == std::tuple_size<decltype(result)>::value);
     CPPUNIT_ASSERT("lamb" == std::get<0>(result));
     CPPUNIT_ASSERT(11 == std::get<1>(result));
@@ -137,7 +156,10 @@ void TestMergeTuple::testEmptyTuplesMid()
     std::tuple<long, long, short> arg3 {33, 4, 6};
     auto result = tuple_utils::merge(arg1, arg2, arg3);
 
-    static_assert(true == std::is_same<std::tuple<std::string, short, long, long, short>, decltype(result)>::value, "Type mismatch");
+    static_assert(
+        true == std::is_same<std::tuple<std::string, short, long, long, short>, decltype(result)>::value,
+        "Type mismatch"
+    );
     CPPUNIT_ASSERT(5 == std::tuple_size<decltype(result)>::value);
     CPPUNIT_ASSERT("lamb" == std::get<0>(result));
     CPPUNIT_ASSERT(11 == std::get<1>(result));
@@ -153,7 +175,10 @@ void TestMergeTuple::testEmptyTuplesEnd()
     std::tuple<> arg3 {};
     auto result = tuple_utils::merge(arg1, arg2, arg3);
 
-    static_assert(true == std::is_same<std::tuple<std::string, short, long, long, short>, decltype(result)>::value, "Type mismatch");
+    static_assert(
+        true == std::is_same<std::tuple<std::string, short, long, long, short>, decltype(result)>::value,
+        "Type mismatch"
+    );
     CPPUNIT_ASSERT(5 == std::tuple_size<decltype(result)>::value);
     CPPUNIT_ASSERT("lamb" == std::get<0>(result));
     CPPUNIT_ASSERT(11 == std::get<1>(result));
@@ -180,7 +205,10 @@ void TestMergeTuple::testTuples1Elem()
     std::tuple<int> arg3 {4};
     auto result = tuple_utils::merge(arg1, arg2, arg3);
 
-    static_assert(true == std::is_same<std::tuple<int, long, int>, decltype(result)>::value, "Type mismatch");
+    static_assert(
+        true == std::is_same<std::tuple<int, long, int>, decltype(result)>::value,
+        "Type mismatch"
+    );
     CPPUNIT_ASSERT(3 == std::tuple_size<decltype(result)>::value);
     CPPUNIT_ASSERT(2 == std::get<0>(result));
     CPPUNIT_ASSERT(1 == std::get<1>(result));
@@ -194,7 +222,10 @@ void TestMergeTuple::testTuples2Elem()
     std::tuple<int, long> arg3 {4, 3};
     auto result = tuple_utils::merge(arg1, arg2, arg3);
 
-    static_assert(true == std::is_same<std::tuple<int, long, int, long, int, long>, decltype(result)>::value, "Type mismatch");
+    static_assert(
+        true == std::is_same<std::tuple<int, long, int, long, int, long>, decltype(result)>::value,
+        "Type mismatch"
+    );
     CPPUNIT_ASSERT(6 == std::tuple_size<decltype(result)>::value);
     CPPUNIT_ASSERT(2== std::get<0>(result));
     CPPUNIT_ASSERT(22 == std::get<1>(result));
