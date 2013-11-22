@@ -109,30 +109,6 @@ void change_braces(std::string new_lbrace, std::string new_rbrace)
     details::tuple_printer::rbrace = std::move(new_rbrace);
 }
 
-/**
- * @brief Return std::string with the content of std::tuple given as an argument
- * Returned std::string starts with left brace [default value "("] and ends with right brace 
- * [default value ")"], each value is separated by a delimiter [default value ", "]. Those 
- * values can be changed with helper functions change_braces and change_delim.
- */ 
-template <
-        typename... Args
-        >
-std::string to_string(const std::tuple<Args...>& tuple)
-{
-    std::ostringstream stream;
-    stream << tuple;
-    return stream.str();
-}
-
-/**
- * @brief For empty std::tuple return empty std::string
- */ 
-std::string to_string(const std::tuple<>&)
-{
-    return std::string();
-}
-
 } //namespace tuple_utils
 
 /**
@@ -188,5 +164,34 @@ operator<< (std::basic_ostream<CharT, Traits>& stream, const std::tuple<>&)
 {
     return stream;
 }
+
+namespace tuple_utils
+{
+
+/**
+ * @brief Return std::string with the content of std::tuple given as an argument
+ * Returned std::string starts with left brace [default value "("] and ends with right brace
+ * [default value ")"], each value is separated by a delimiter [default value ", "]. Those
+ * values can be changed with helper functions change_braces and change_delim.
+ */
+template <
+        typename... Args
+        >
+std::string to_string(const std::tuple<Args...>& tuple)
+{
+    std::ostringstream stream;
+    stream << tuple;
+    return stream.str();
+}
+
+/**
+ * @brief For empty std::tuple return empty std::string
+ */
+std::string to_string(const std::tuple<>&)
+{
+    return std::string();
+}
+
+} //namespace tuple_utils
 
 #endif // PRINT_TUPLES_H

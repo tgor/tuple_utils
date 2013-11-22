@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 2.8)
 
+#set (CMAKE_CXX_COMPILER "/usr/local/bin/clang++")
+set (CMAKE_CXX_COMPILER "/usr/local/bin/g++")
+
 macro(add_unit_test name)
   add_executable(test_${name} test_${name}.cpp ${ARGN})
   target_link_libraries(test_${name} cppunit)

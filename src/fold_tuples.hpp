@@ -37,12 +37,13 @@ template <
         >
 struct fold_result_type
 {
+    static_assert(contain_empty<Tuples...>::value, "Can not fold empty tuple");
     using type = decltype(std::tuple_cat(std::make_tuple(
         std::declval<typename result_of_rec<
             FuncType,
-            typename std::tuple_element<Curr, typename std::decay<Tuples>::type>::type...>::type
+            typename std::tuple_element<Curr, typename std::remove_reference<Tuples>::type>::type...>::type
         >()),
-        std::declval<typename fold_result_type<Curr + 1, Last, FuncType, typename std::decay<Tuples>::type...>::type>()
+        std::declval<typename fold_result_type<Curr + 1, Last, FuncType, typename std::remove_reference<Tuples>::type...>::type>()
     ));
 };
 
@@ -58,7 +59,7 @@ struct fold_result_type<Last, Last, FuncType, Tuples...>
 {
     using type = decltype(std::make_tuple(std::declval<typename result_of_rec<
         FuncType,
-        typename std::tuple_element<Last, Tuples>::type...>::type
+        typename std::tuple_element<Last, typename std::remove_reference<Tuples>::type>::type...>::type
     >()));
 };
 
@@ -161,8 +162,8 @@ template <
 struct tuple_fold_det<End, End>
 {
     /**
-     *@brief Called for the std::tuple_size<X>::value index, which is one past last tuple element, 
-     *thus in this case fold_helper is no-op
+     * @brief Called for the std::tuple_size<X>::value index, which is one past last tuple element,
+     * thus in this case fold_helper is no-op
      */
     template <
             typename FuncType,

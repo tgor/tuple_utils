@@ -5,6 +5,8 @@ cmake_minimum_required(VERSION 2.8)
 set (Tuple_Utils_VERSION_MAJOR 0)
 set (Tuple_Utils_VERSION_MINOR 0)
 set (Tuple_Utils_VERSION_PATH 1)
+set (CMAKE_CXX_COMPILER "/usr/local/bin/clang++")
+#set (CMAKE_CXX_COMPILER "/usr/bin/g++")
 
 if (CMAKE_CXX_FLAGS)
   set(CXXFLAGS_PROVIDED true)

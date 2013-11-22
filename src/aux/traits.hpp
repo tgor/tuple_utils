@@ -75,7 +75,8 @@ struct tsize_min<T, Y> : private static_
 
 /**
  * @brief Special case when tsize_min is parameterized with only one type
- * Derives from std::integral_constant to get value member of type std::size_t with value equal to std::tuple_size<>::value
+ * Derives from std::integral_constant to get value member of type std::size_t with value equal
+ * to std::tuple_size<>::value
  */
 template <typename T>
 struct tsize_min<T> :
@@ -99,7 +100,7 @@ template <
         typename F,
         typename... R
         >
-struct result_of_rec<FuncType, F, R...>
+struct result_of_rec<FuncType, F, R...> : private static_
 {
     using type = decltype(std::declval<FuncType>()(
         std::declval<typename std::add_lvalue_reference<F>::type>(),
@@ -108,14 +109,14 @@ struct result_of_rec<FuncType, F, R...>
 };
 
 /**
- * @brief Last step of result_of_rec<FuncType, F, R...>, type is set to the return value of a binary function f(x,y)
+ * @brief Last step of result_of_rec<FuncType, F, R...>, type set to the return value of a binary function f(x,y)
  */
 template <
         typename FuncType,
         typename T,
         typename Y
         >
-struct result_of_rec<FuncType, T, Y>
+struct result_of_rec<FuncType, T, Y> : private static_
 {
     using type = decltype(std::declval<FuncType>()(
         std::declval<typename std::add_lvalue_reference<T>::type>(),
@@ -130,9 +131,35 @@ template <
         typename FuncType,
         typename T
         >
-struct result_of_rec<FuncType, T>
+struct result_of_rec<FuncType, T> : private static_
 {
     using type = decltype(std::declval<FuncType>()(std::declval<typename std::add_lvalue_reference<T>::type>()));
+};
+
+/**
+ * @brief Check if any type passed as template parameter is empty
+ */
+template <
+        typename T,
+        typename... Rest
+        >
+struct contain_empty : private static_
+{
+    using CT = typename std::decay<T>::type;
+    static constexpr bool value = std::tuple_size<CT>::value && contain_empty<Rest...>::value;
+};
+
+/**
+ * @ Check if type passed as template parameter is empty
+ * Last step in recursive contain_empty check.
+ */
+template <
+        typename T
+        >
+struct contain_empty<T> : private static_
+{
+    using CT = typename std::decay<T>::type;
+    static constexpr bool value = std::tuple_size<CT>::value;
 };
 
 } // namespace tuple_utils
