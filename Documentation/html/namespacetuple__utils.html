@@ -99,32 +99,108 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af489ebd8fceb4ce1e6aba8eeea4e6966"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename...&gt; class Tup, template&lt; typename...&gt; class... Res, typename... Args&gt; </td></tr>
-<tr class="memitem:af489ebd8fceb4ce1e6aba8eeea4e6966"><td class="memTemplItemLeft" align="right" valign="top">Tup&lt; Args...&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#af489ebd8fceb4ce1e6aba8eeea4e6966">fold</a> (Tup&lt; Args...&gt; &amp;first, Res&lt; Args...&gt; &amp;...rest)</td></tr>
-<tr class="separator:af489ebd8fceb4ce1e6aba8eeea4e6966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a31734e87d8545c7e1a8acef7da3fc5"><td class="memTemplParams" colspan="2">template&lt;typename... Args1&gt; </td></tr>
+<tr class="memitem:a3a31734e87d8545c7e1a8acef7da3fc5"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a3a31734e87d8545c7e1a8acef7da3fc5">c_product</a> (const std::tuple&lt; Args1...&gt; &amp;x) -&gt; std::tuple&lt; Args1...&gt;</td></tr>
+<tr class="memdesc:a3a31734e87d8545c7e1a8acef7da3fc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate value of Cartesian product of one std::tuple Simply returns value of the given argument.  <a href="#a3a31734e87d8545c7e1a8acef7da3fc5">More...</a><br/></td></tr>
+<tr class="separator:a3a31734e87d8545c7e1a8acef7da3fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac76a5c539f95607f7d0b7b305162fe28"><td class="memTemplParams" colspan="2">template&lt;typename... Args1, typename... Args2, typename... Rest&gt; </td></tr>
+<tr class="memitem:ac76a5c539f95607f7d0b7b305162fe28"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#ac76a5c539f95607f7d0b7b305162fe28">c_product</a> (const std::tuple&lt; Args1...&gt; &amp;x, const std::tuple&lt; Args2...&gt; &amp;y, const Rest &amp;...rest) -&gt; typename <a class="el" href="structtuple__utils_1_1details_1_1c__product__type.html">details::c_product_type</a>&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, Rest...&gt;::type</td></tr>
+<tr class="memdesc:ac76a5c539f95607f7d0b7b305162fe28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate n-ary Cartesian product over n std::tuple's Given n std::tuples T1, T2, T3, ..., Tn it calculates (T1 x (T2 x (T3 x (...  <a href="#ac76a5c539f95607f7d0b7b305162fe28">More...</a><br/></td></tr>
+<tr class="separator:ac76a5c539f95607f7d0b7b305162fe28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7723d23c77531127b5183e4c542904ea"><td class="memTemplParams" colspan="2">template&lt;typename FuncType , typename... Tuples&gt; </td></tr>
+<tr class="memitem:a7723d23c77531127b5183e4c542904ea"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a7723d23c77531127b5183e4c542904ea">fold</a> (const FuncType &amp;f, Tuples &amp;&amp;...args) -&gt; typename <a class="el" href="structtuple__utils_1_1details_1_1fold__result__type.html">details::fold_result_type</a>&lt; 0, tsize_min&lt; Tuples...&gt;::value-1, FuncType, Tuples...&gt;::type</td></tr>
+<tr class="separator:a7723d23c77531127b5183e4c542904ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93944899a2b6e428570e091171e25cc4"><td class="memTemplParams" colspan="2">template&lt;int... Sequence, typename Tuple &gt; </td></tr>
 <tr class="memitem:a93944899a2b6e428570e091171e25cc4"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a93944899a2b6e428570e091171e25cc4">make_custom_tuple</a> (const Tuple &amp;tuple) -&gt; decltype(<a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html">details::partitionTuple</a>&lt; Tuple, Sequence...&gt;::part(<a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html">details::partitionTuple</a>&lt; Tuple, Sequence...&gt;::range, tuple))</td></tr>
 <tr class="separator:a93944899a2b6e428570e091171e25cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a045a0093919e411236d660f447bee968"><td class="memTemplParams" colspan="2">template&lt;typename... Args1, typename... Args2, typename... Rest&gt; </td></tr>
 <tr class="memitem:a045a0093919e411236d660f447bee968"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a045a0093919e411236d660f447bee968">merge</a> (const std::tuple&lt; Args1...&gt; &amp;tuple1, const std::tuple&lt; Args2...&gt; &amp;tuple2, const Rest &amp;...rest) -&gt; typename <a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det.html">details::merge_tuples_det</a>&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, Rest...&gt;::Ret</td></tr>
 <tr class="separator:a045a0093919e411236d660f447bee968"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5094849234c70f729699843100de2b8c"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:a5094849234c70f729699843100de2b8c"><td class="memTemplItemLeft" align="right" valign="top">std::tuple&lt; Args...&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a5094849234c70f729699843100de2b8c">merge</a> (std::tuple&lt; Args...&gt; arg)</td></tr>
-<tr class="memdesc:a5094849234c70f729699843100de2b8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload for calling <a class="el" href="namespacetuple__utils.html#a045a0093919e411236d660f447bee968">tuple_utils::merge</a> with only one argument Special case which returns only a copy of the given argument.  <a href="#a5094849234c70f729699843100de2b8c">More...</a><br/></td></tr>
-<tr class="separator:a5094849234c70f729699843100de2b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec674787c9a7d935f4a1380fa78bcd43"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:aec674787c9a7d935f4a1380fa78bcd43"><td class="memTemplItemLeft" align="right" valign="top">std::tuple&lt; Args...&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#aec674787c9a7d935f4a1380fa78bcd43">merge</a> (const std::tuple&lt; Args...&gt; &amp;arg)</td></tr>
+<tr class="memdesc:aec674787c9a7d935f4a1380fa78bcd43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload for calling <a class="el" href="namespacetuple__utils.html#a045a0093919e411236d660f447bee968">tuple_utils::merge</a> with only one argument Special case which returns only a copy of the given argument.  <a href="#aec674787c9a7d935f4a1380fa78bcd43">More...</a><br/></td></tr>
+<tr class="separator:aec674787c9a7d935f4a1380fa78bcd43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb8f8ac0741e72f83159da70de3fb586"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#aeb8f8ac0741e72f83159da70de3fb586">change_delim</a> (std::string new_delim)</td></tr>
 <tr class="separator:aeb8f8ac0741e72f83159da70de3fb586"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7f01aa4fc0d839d3db773676b722dc0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#af7f01aa4fc0d839d3db773676b722dc0">change_braces</a> (std::string new_lbrace, std::string new_rbrace)</td></tr>
+<tr class="memdesc:af7f01aa4fc0d839d3db773676b722dc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change limiting braces used when printing std::tuple Braces are not limited to just one sign, could contain whole strings instead Initial value for the left brace is set to "(" and for the right brace ")".  <a href="#af7f01aa4fc0d839d3db773676b722dc0">More...</a><br/></td></tr>
 <tr class="separator:af7f01aa4fc0d839d3db773676b722dc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24d0ca82e053f1786ccf978924e2edfa"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
 <tr class="memitem:a24d0ca82e053f1786ccf978924e2edfa"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a24d0ca82e053f1786ccf978924e2edfa">to_string</a> (const std::tuple&lt; Args...&gt; &amp;tuple)</td></tr>
+<tr class="memdesc:a24d0ca82e053f1786ccf978924e2edfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return std::string with the content of std::tuple given as an argument Returned std::string starts with left brace [default value "("] and ends with right brace [default value ")"], each value is separated by a delimiter [default value ", "].  <a href="#a24d0ca82e053f1786ccf978924e2edfa">More...</a><br/></td></tr>
 <tr class="separator:a24d0ca82e053f1786ccf978924e2edfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a719394a97da508fa7292001b64fc7043"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a719394a97da508fa7292001b64fc7043">to_string</a> (const std::tuple&lt;&gt; &amp;)</td></tr>
+<tr class="memdesc:a719394a97da508fa7292001b64fc7043"><td class="mdescLeft">&#160;</td><td class="mdescRight">For empty std::tuple return empty std::string.  <a href="#a719394a97da508fa7292001b64fc7043">More...</a><br/></td></tr>
 <tr class="separator:a719394a97da508fa7292001b64fc7043"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Utilities for tuples manipulation. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a3a31734e87d8545c7e1a8acef7da3fc5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args1&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto tuple_utils::c_product </td>
+          <td>(</td>
+          <td class="paramtype">const std::tuple&lt; Args1...&gt; &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td> -&gt; std::tuple&lt;Args1...&gt;
+</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate value of Cartesian product of one std::tuple Simply returns value of the given argument. </p>
+<p>Used as a last step by <a class="el" href="namespacetuple__utils.html#a3a31734e87d8545c7e1a8acef7da3fc5" title="Calculate value of Cartesian product of one std::tuple Simply returns value of the given argument...">tuple_utils::c_product</a> invoked for more than one std::tuple </p>
+
+</div>
+</div>
+<a class="anchor" id="ac76a5c539f95607f7d0b7b305162fe28"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args1, typename... Args2, typename... Rest&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto tuple_utils::c_product </td>
+          <td>(</td>
+          <td class="paramtype">const std::tuple&lt; Args1...&gt; &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::tuple&lt; Args2...&gt; &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Rest &amp;...&#160;</td>
+          <td class="paramname"><em>rest</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> -&gt; typename details::c_product_type&lt;std::tuple&lt;Args1...&gt;, std::tuple&lt;Args2...&gt;, Rest...&gt;::type
+</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate n-ary Cartesian product over n std::tuple's Given n std::tuples T1, T2, T3, ..., Tn it calculates (T1 x (T2 x (T3 x (... </p>
+<p>x (T(n-1) x Tn))))) where Ti x Tj is calculated by <a class="el" href="namespacetuple__utils_1_1details.html#ad669fc9e03830c41783d8a8e7fe1ed74" title="Return Cartesian product of two std::tuples For each value from the first argument combine it with ea...">details::c_product_bin</a>. Example </p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> x = std::make_tuple(6, 3);</div>
+<div class="line"><span class="keyword">auto</span> y = std::make_tuple(<span class="stringliteral">&quot;xxx&quot;</span>, 5.3);</div>
+<div class="line"><span class="keyword">auto</span> z = std::make_tuple(7, -2);</div>
+<div class="line"><span class="keyword">auto</span> res = <a class="code" href="namespacetuple__utils.html#a3a31734e87d8545c7e1a8acef7da3fc5">c_product</a>(x, y, z); <span class="comment">//res is std::tuple of std::tuples containing ((6, xxx, 7), (6, xxx, -2),</span></div>
+<div class="line"><span class="comment">// (6, 5.3, 7), (6, 5.3, -2), (3, xxx, 7), (3, xxx, -2), (3, 5.3, 7), (3, 5.3, -2))</span></div>
+</div><!-- fragment --> 
+</div>
+</div>
 <a class="anchor" id="af7f01aa4fc0d839d3db773676b722dc0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -149,6 +225,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Change limiting braces used when printing std::tuple Braces are not limited to just one sign, could contain whole strings instead Initial value for the left brace is set to "(" and for the right brace ")". </p>
+
 </div>
 </div>
 <a class="anchor" id="aeb8f8ac0741e72f83159da70de3fb586"></a>
@@ -166,58 +244,59 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p></p>
+<p>Change delimiter used to separate printed elements of std::tuple Delimiter is not limited to just one sign, could contain whole string instead. Initial value is set to ", " </p>
 
 </div>
 </div>
-<a class="anchor" id="af489ebd8fceb4ce1e6aba8eeea4e6966"></a>
+<a class="anchor" id="a7723d23c77531127b5183e4c542904ea"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;template&lt; typename...&gt; class Tup, template&lt; typename...&gt; class... Res, typename... Args&gt; </div>
+template&lt;typename FuncType , typename... Tuples&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">Tup&lt;Args...&gt; tuple_utils::fold </td>
+          <td class="memname">auto tuple_utils::fold </td>
           <td>(</td>
-          <td class="paramtype">Tup&lt; Args...&gt; &amp;&#160;</td>
-          <td class="paramname"><em>first</em>, </td>
+          <td class="paramtype">const FuncType &amp;&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Res&lt; Args...&gt; &amp;...&#160;</td>
-          <td class="paramname"><em>rest</em>&#160;</td>
+          <td class="paramtype">Tuples &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> -&gt; typename details::fold_result_type&lt;0, tsize_min&lt;Tuples...&gt;::value - 1, FuncType, Tuples...&gt;::type
+</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p></p>
-<p>Folds few tuples into one by adding elements on each position from those tuples. Used to produce std::tuple in which each element is equal to the sum of corresponding elements from std::tuples given as an arguments </p>
+<p>Folds few tuples into one by calling function f with arguments given on each position from those tuples. Used to produce std::tuple in which each element is equal to the result of recursive invocation of function f for each element from from std::tuples given as an arguments at each index </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Tup</td><td>- std::tuple type given as a first argument </td></tr>
-    <tr><td class="paramname">Res...</td><td>- unknown number of std::tuples types given as other arguments </td></tr>
-    <tr><td class="paramname">Args...</td><td>- types of the elements stored by each tuple </td></tr>
+    <tr><td class="paramname">FuncType</td><td>- type of function used for folding </td></tr>
+    <tr><td class="paramname">Res...</td><td>- unknown number of std::tuples types given as arguments </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">first</td><td>- std::tuple given as a first argument </td></tr>
-    <tr><td class="paramname">rest</td><td>- unknown number of std::tuples, must be exactly the same type as in the 'first' argument </td></tr>
+    <tr><td class="paramname">f</td><td>- binary or unary function which will be used to fold one or more tuples </td></tr>
+    <tr><td class="paramname">rest</td><td>- unknown number of std::tuples </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::tuple in which each position is the sum of a values from the same positions from the tuples given as arguments</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::tuple in which each position is equal to the result of folding values from the same positions from the tuples given as arguments</dd></dl>
 <p>Example Usage: </p>
 <div class="fragment"><div class="line"><span class="keyword">auto</span> tuple_arg1 = std::make_tuple(2, 4.4, <span class="stringliteral">&quot;hello &quot;</span>);</div>
-<div class="line"><span class="keyword">auto</span> tuple_arg2 = std::make_tuple(3, 0.1, <span class="stringliteral">&quot;world&quot;</span>);</div>
-<div class="line"><span class="keyword">auto</span> result = <a class="code" href="namespacetuple__utils.html#af489ebd8fceb4ce1e6aba8eeea4e6966">tuple_utils::fold</a>(tuple_arg1, tuple_arg2); </div>
-<div class="line"><span class="comment">// result is equal to std::tuple&lt;int, double, const char*&gt; result {5, 4.5, &quot;hello world}</span></div>
+<div class="line"><span class="keyword">auto</span> tuple_arg2 = std::make_tuple(3, 1, <span class="stringliteral">&quot;world&quot;</span>);</div>
+<div class="line"><span class="keyword">auto</span> result = <a class="code" href="namespacetuple__utils.html#a7723d23c77531127b5183e4c542904ea">tuple_utils::fold</a>(std::plus&lt;&gt;(), tuple_arg1, tuple_arg2); <span class="comment">//std::plus&lt;&gt;() from C++14</span></div>
+<div class="line"><span class="comment">// result is equal to std::tuple&lt;int, double, const char*&gt; result {5, 5.4, &quot;hello world}</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -315,7 +394,7 @@ template&lt;typename... Args1, typename... Args2, typename... Rest&gt; </div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a class="anchor" id="a5094849234c70f729699843100de2b8c"></a>
+<a class="anchor" id="aec674787c9a7d935f4a1380fa78bcd43"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -324,7 +403,7 @@ template&lt;typename... Args&gt; </div>
         <tr>
           <td class="memname">std::tuple&lt;Args...&gt; tuple_utils::merge </td>
           <td>(</td>
-          <td class="paramtype">std::tuple&lt; Args...&gt;&#160;</td>
+          <td class="paramtype">const std::tuple&lt; Args...&gt; &amp;&#160;</td>
           <td class="paramname"><em>arg</em></td><td>)</td>
           <td></td>
         </tr>
@@ -351,6 +430,9 @@ template&lt;typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Return std::string with the content of std::tuple given as an argument Returned std::string starts with left brace [default value "("] and ends with right brace [default value ")"], each value is separated by a delimiter [default value ", "]. </p>
+<p>Those values can be changed with helper functions change_braces and change_delim. </p>
+
 </div>
 </div>
 <a class="anchor" id="a719394a97da508fa7292001b64fc7043"></a>
@@ -367,12 +449,14 @@ template&lt;typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>For empty std::tuple return empty std::string. </p>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 14 2013 19:29:34 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 23 2013 15:10:54 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

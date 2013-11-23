@@ -98,11 +98,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1tuple__fold__det.html">tuple_utils::details::tuple_fold_det&lt; Begin, End, Args &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function used by the <a class="el" href="namespacetuple__utils.html#af489ebd8fceb4ce1e6aba8eeea4e6966">tuple_utils::fold</a> Assigns values in unrolled loop based on current index, used recursively.  <a href="structtuple__utils_1_1details_1_1tuple__fold__det.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1fold__result__type.html">tuple_utils::details::fold_result_type&lt; Curr, Last, FuncType, Tuples &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine type returned by the <a class="el" href="namespacetuple__utils.html#a7723d23c77531127b5183e4c542904ea">tuple_utils::fold</a> For each index in std::tuples taken as fold arguments set type in std::tuple type returned by fold.  <a href="structtuple__utils_1_1details_1_1fold__result__type.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1tuple__fold__det_3_01End_00_01End_00_01Args_8_8_8_4.html">tuple_utils::details::tuple_fold_det&lt; End, End, Args...&gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Last call of unrolled <a class="el" href="structtuple__utils_1_1details_1_1tuple__fold__det.html" title="Helper function used by the tuple_utils::fold Assigns values in unrolled loop based on current index...">tuple_fold_det</a> struct Partial template specialization used to call fold_helper for the one past last tuple element.  <a href="structtuple__utils_1_1details_1_1tuple__fold__det_3_01End_00_01End_00_01Args_8_8_8_4.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1fold__result__type_3_01Last_00_01Last_00_01FuncType_00_01Tuples_8_8_8_4.html">tuple_utils::details::fold_result_type&lt; Last, Last, FuncType, Tuples...&gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Last recursive step of <a class="el" href="structtuple__utils_1_1details_1_1fold__result__type.html" title="Determine type returned by the tuple_utils::fold For each index in std::tuples taken as fold argument...">fold_result_type</a>.  <a href="structtuple__utils_1_1details_1_1fold__result__type_3_01Last_00_01Last_00_01FuncType_00_01Tuples_8_8_8_4.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1tuple__fold__det.html">tuple_utils::details::tuple_fold_det&lt; Begin, End &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function used by the <a class="el" href="namespacetuple__utils.html#a7723d23c77531127b5183e4c542904ea">tuple_utils::fold</a> Assigns values in unrolled loop based on current index, used recursively.  <a href="structtuple__utils_1_1details_1_1tuple__fold__det.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1tuple__fold__det_3_01End_00_01End_01_4.html">tuple_utils::details::tuple_fold_det&lt; End, End &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Last call of unrolled <a class="el" href="structtuple__utils_1_1details_1_1tuple__fold__det.html" title="Helper function used by the tuple_utils::fold Assigns values in unrolled loop based on current index...">tuple_fold_det</a> struct Partial template specialization used to call fold_helper for the one past last tuple element.  <a href="structtuple__utils_1_1details_1_1tuple__fold__det_3_01End_00_01End_01_4.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -115,21 +121,21 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a57c1286bcd1a0aac769052a445272e7d"><td class="memTemplParams" colspan="2">template&lt;typename Y , typename Z &gt; </td></tr>
-<tr class="memitem:a57c1286bcd1a0aac769052a445272e7d"><td class="memTemplItemLeft" align="right" valign="top">std::common_type&lt; Y, Z &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils_1_1details.html#a57c1286bcd1a0aac769052a445272e7d">tuple_utils::details::add_helper</a> (const Y &amp;beforelast, const Z &amp;last)</td></tr>
-<tr class="memdesc:a57c1286bcd1a0aac769052a445272e7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Last recursive call for add_helper function.  <a href="#a57c1286bcd1a0aac769052a445272e7d">More...</a><br/></td></tr>
-<tr class="separator:a57c1286bcd1a0aac769052a445272e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77f2b4852dc4fa51e7c49c1f47392b85"><td class="memTemplParams" colspan="2">template&lt;typename F , typename... R&gt; </td></tr>
-<tr class="memitem:a77f2b4852dc4fa51e7c49c1f47392b85"><td class="memTemplItemLeft" align="right" valign="top">common_type_var&lt; F, R...&gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils_1_1details.html#a77f2b4852dc4fa51e7c49c1f47392b85">tuple_utils::details::add_helper</a> (const F &amp;first, const R &amp;...rest)</td></tr>
-<tr class="memdesc:a77f2b4852dc4fa51e7c49c1f47392b85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add unknown number of elements together Helper function called with at least one element.  <a href="#a77f2b4852dc4fa51e7c49c1f47392b85">More...</a><br/></td></tr>
-<tr class="separator:a77f2b4852dc4fa51e7c49c1f47392b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8de509bc8c855ddbb95dce11cccaa79"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aa8de509bc8c855ddbb95dce11cccaa79"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils_1_1details.html#aa8de509bc8c855ddbb95dce11cccaa79">tuple_utils::details::add_helper</a> (const T &amp;arg)</td></tr>
-<tr class="memdesc:aa8de509bc8c855ddbb95dce11cccaa79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special case when <a class="el" href="namespacetuple__utils.html#af489ebd8fceb4ce1e6aba8eeea4e6966">tuple_utils::fold</a> is invoked with only one argument.  <a href="#aa8de509bc8c855ddbb95dce11cccaa79">More...</a><br/></td></tr>
-<tr class="separator:aa8de509bc8c855ddbb95dce11cccaa79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af489ebd8fceb4ce1e6aba8eeea4e6966"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename...&gt; class Tup, template&lt; typename...&gt; class... Res, typename... Args&gt; </td></tr>
-<tr class="memitem:af489ebd8fceb4ce1e6aba8eeea4e6966"><td class="memTemplItemLeft" align="right" valign="top">Tup&lt; Args...&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#af489ebd8fceb4ce1e6aba8eeea4e6966">tuple_utils::fold</a> (Tup&lt; Args...&gt; &amp;first, Res&lt; Args...&gt; &amp;...rest)</td></tr>
-<tr class="separator:af489ebd8fceb4ce1e6aba8eeea4e6966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef84c229fa5c84672f891fd53cc56763"><td class="memTemplParams" colspan="2">template&lt;typename FuncType , typename Y , typename Z &gt; </td></tr>
+<tr class="memitem:aef84c229fa5c84672f891fd53cc56763"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils_1_1details.html#aef84c229fa5c84672f891fd53cc56763">tuple_utils::details::invoke_helper</a> (FuncType f, Y &amp;beforelast, Z &amp;last) -&gt; typename result_of_rec&lt; FuncType, Y, Z &gt;::type</td></tr>
+<tr class="memdesc:aef84c229fa5c84672f891fd53cc56763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Last recursive call for invoke_helper function.  <a href="#aef84c229fa5c84672f891fd53cc56763">More...</a><br/></td></tr>
+<tr class="separator:aef84c229fa5c84672f891fd53cc56763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae74848dd7bed04fd2142d49a2bdbc00e"><td class="memTemplParams" colspan="2">template&lt;typename FuncType , typename F , typename... R&gt; </td></tr>
+<tr class="memitem:ae74848dd7bed04fd2142d49a2bdbc00e"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils_1_1details.html#ae74848dd7bed04fd2142d49a2bdbc00e">tuple_utils::details::invoke_helper</a> (FuncType f, F &amp;first, R &amp;...rest) -&gt; typename result_of_rec&lt; FuncType, F, R...&gt;::type</td></tr>
+<tr class="memdesc:ae74848dd7bed04fd2142d49a2bdbc00e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively fold arbitrary number of arguments Helper function called with at least one element.  <a href="#ae74848dd7bed04fd2142d49a2bdbc00e">More...</a><br/></td></tr>
+<tr class="separator:ae74848dd7bed04fd2142d49a2bdbc00e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec3ba2378888365375def2303f88aee7"><td class="memTemplParams" colspan="2">template&lt;typename FuncType , typename Y &gt; </td></tr>
+<tr class="memitem:aec3ba2378888365375def2303f88aee7"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils_1_1details.html#aec3ba2378888365375def2303f88aee7">tuple_utils::details::invoke_helper</a> (FuncType f, Y &amp;onlyOne) -&gt; typename result_of_rec&lt; FuncType, Y &gt;::type</td></tr>
+<tr class="memdesc:aec3ba2378888365375def2303f88aee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special case when <a class="el" href="namespacetuple__utils.html#a7723d23c77531127b5183e4c542904ea">tuple_utils::fold</a> is invoked with unary function.  <a href="#aec3ba2378888365375def2303f88aee7">More...</a><br/></td></tr>
+<tr class="separator:aec3ba2378888365375def2303f88aee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7723d23c77531127b5183e4c542904ea"><td class="memTemplParams" colspan="2">template&lt;typename FuncType , typename... Tuples&gt; </td></tr>
+<tr class="memitem:a7723d23c77531127b5183e4c542904ea"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a7723d23c77531127b5183e4c542904ea">tuple_utils::fold</a> (const FuncType &amp;f, Tuples &amp;&amp;...args) -&gt; typename details::fold_result_type&lt; 0, tsize_min&lt; Tuples...&gt;::value-1, FuncType, Tuples...&gt;::type</td></tr>
+<tr class="separator:a7723d23c77531127b5183e4c542904ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd></dd></dl>
@@ -137,7 +143,7 @@ Functions</h2></td></tr>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 14 2013 19:29:34 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 23 2013 15:10:54 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

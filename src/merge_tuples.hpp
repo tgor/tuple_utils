@@ -21,9 +21,9 @@ template <typename...>
 struct merge_tuples_type;
 
 /**
- *@brief Obtain type of few std::tuples merged together
- *For example merge of std::tuple<int, float, double>, std::tuple<std::string> and std::tuple<long, short>
- *will yield type std::tuple<int, float, double, std::string, long, short>
+ * @brief Obtain type of few std::tuples merged together
+ * For example merge of std::tuple<int, float, double>, std::tuple<std::string> and std::tuple<long, short>
+ * will yield type std::tuple<int, float, double, std::string, long, short>
  */
 template <
         typename... Args1,
@@ -36,9 +36,9 @@ struct merge_tuples_type<std::tuple<Args1...>, std::tuple<Args2...>, Rest...>
 };
 
 /**
- *@brief Get type of two std::tuples merged together
- *Last recursive step of merge_tuples_type<>::type where type member is std::tuple of types from
- *both tuples given as parameters
+ * @brief Get type of two std::tuples merged together
+ * Last recursive step of merge_tuples_type<>::type where type member is std::tuple of types from
+ * both tuples given as parameters
  */
 template <
         typename... Args1,
@@ -141,7 +141,7 @@ struct merge_tuples_det<std::tuple<Args1...>, std::tuple<Args2...>, RestArgs...>
         {}
 
         /**
-        *@brief Function that copies all values from arguments to the result
+        * @brief Function that copies all values from arguments to the result
         * Recursively unroll one std::tuple and copy its value, then recursively process and unroll next arguments
         * until there is no argument left
         * @param result - std::tuple which will be returned by the tuple_utils::merge
@@ -163,7 +163,7 @@ struct merge_tuples_det<std::tuple<Args1...>, std::tuple<Args2...>, RestArgs...>
 ///@endinternal
 
 /**
- *@brief Merge few std::tuples into one using their values
+ * @brief Merge few std::tuples into one using their values
  * Takes any number of heterogenous std::tuples and returns an aggregate std::tuple that contains each
  * value from the given arguments, in order.
  * @param tuple1, tuple2, rest... - at least two possibly heterogenous std::tuples
@@ -205,7 +205,7 @@ auto merge(const std::tuple<Args1...>& tuple1, const std::tuple<Args2...>& tuple
 template <
         typename... Args
         >
-std::tuple<Args...> merge(std::tuple<Args...> arg)
+std::tuple<Args...> merge(const std::tuple<Args...>& arg)
 {
     return arg;
 }
