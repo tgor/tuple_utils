@@ -208,25 +208,3 @@ auto c_product(const std::tuple<Args1...>& x, const std::tuple<Args2...>& y, con
 } //namespace tuple_utils
 
 #endif // CARTESIAN_PRODUCT_H
-
-
- /*
-int main()
-{
- auto x = std::make_tuple(6, 3);
- auto y = std::make_tuple(7, 9, 5);
- auto z = std::make_tuple(7);
- auto w = std::make_tuple(11, 1);
- auto q = std::make_tuple(101);
- (void)x,(void)y,(void)z,(void)w,(void)q;
- //test kiedy jedna krotka jest pusta (umiescic w roznych miejscach) - powinnien zwrocic pusta krotke
-
- auto res = c_product(x, x);
-
- auto x = std::make_tuple(6, 3);
- auto y = std::make_tuple("xxx", 5.3);
- auto z = std::make_tuple(7, -2);
- auto res = c_product(x, y, z);
- std::cout << std::tuple_size<decltype(res)>::value << std::endl;
- std::cout << res << std::endl;
-}*/
