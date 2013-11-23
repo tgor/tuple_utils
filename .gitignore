@@ -1,0 +1,3 @@
+build/*
+src/Doxyfile
+src/main.cpp
