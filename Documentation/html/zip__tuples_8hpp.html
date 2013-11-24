@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>TUPLEUTILS: make_custom_tuple.hpp File Reference</title>
+<title>TUPLEUTILS: zip_tuples.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,30 +86,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">make_custom_tuple.hpp File Reference</div>  </div>
+<div class="title">zip_tuples.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;aux/sequence.hpp&quot;</code><br/>
-<code>#include &lt;tuple&gt;</code><br/>
+<div class="textblock"><code>#include &lt;tuple&gt;</code><br/>
+<code>#include &lt;type_traits&gt;</code><br/>
+<code>#include &quot;aux/traits.hpp&quot;</code><br/>
 </div>
-<p><a href="make__custom__tuple_8hpp_source.html">Go to the source code of this file.</a></p>
+<p><a href="zip__tuples_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromSequence.html">tuple_utils::details::tupleTypeFromSequence&lt; Tuple, Sequence &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct to extract std::tuple types based on sequence.  <a href="structtuple__utils_1_1details_1_1tupleTypeFromSequence.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1zip__det.html">tuple_utils::details::zip_det&lt; Curr, End, Tuple &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create std::tuple of std::tuples with elements equal to elements from tuples at given positions Each std::tuple in resulting std::tuple contains elements from tuples given as parameters.  <a href="structtuple__utils_1_1details_1_1zip__det.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromSequence_3_01Tuple_00_01First_00_01Sequence_8_8_8_4.html">tuple_utils::details::tupleTypeFromSequence&lt; Tuple, First, Sequence...&gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursive step of <a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromSequence.html" title="Struct to extract std::tuple types based on sequence. ">tupleTypeFromSequence</a>.  <a href="structtuple__utils_1_1details_1_1tupleTypeFromSequence_3_01Tuple_00_01First_00_01Sequence_8_8_8_4.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromSequence_3_01Tuple_00_01BeforeLast_00_01Last_01_4.html">tuple_utils::details::tupleTypeFromSequence&lt; Tuple, BeforeLast, Last &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Last recursive instantiation of <a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromSequence.html" title="Struct to extract std::tuple types based on sequence. ">tupleTypeFromSequence</a> struct.  <a href="structtuple__utils_1_1details_1_1tupleTypeFromSequence_3_01Tuple_00_01BeforeLast_00_01Last_01_4.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromSequence_3_01Tuple_01_4.html">tuple_utils::details::tupleTypeFromSequence&lt; Tuple &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special case for calling make_custom_tuple without any indices (i.e.  <a href="structtuple__utils_1_1details_1_1tupleTypeFromSequence_3_01Tuple_01_4.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1partitionTuple.html">tuple_utils::details::partitionTuple&lt; Tuple, Sequence &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill std::tuple created by <a class="el" href="structtuple__utils_1_1details_1_1tupleTypeFromSequence.html" title="Struct to extract std::tuple types based on sequence. ">tupleTypeFromSequence</a> with values from the base tuple.  <a href="structtuple__utils_1_1details_1_1partitionTuple.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1zip__det_3_01End_00_01End_00_01Tuple_8_8_8_4.html">tuple_utils::details::zip_det&lt; End, End, Tuple...&gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper struct used to limit the recursion, used when index used for zipping hits last element.  <a href="structtuple__utils_1_1details_1_1zip__det_3_01End_00_01End_00_01Tuple_8_8_8_4.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -122,13 +114,21 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:adbd61ea41d436dae652f7b00088a2dbb"><td class="memTemplParams" colspan="2">template&lt;typename L , typename R &gt; </td></tr>
-<tr class="memitem:adbd61ea41d436dae652f7b00088a2dbb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils_1_1details.html#adbd61ea41d436dae652f7b00088a2dbb">tuple_utils::details::assign</a> (L &amp;left, const R &amp;right)</td></tr>
-<tr class="memdesc:adbd61ea41d436dae652f7b00088a2dbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign value of the second argument to the first one.  <a href="#adbd61ea41d436dae652f7b00088a2dbb">More...</a><br/></td></tr>
-<tr class="separator:adbd61ea41d436dae652f7b00088a2dbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93944899a2b6e428570e091171e25cc4"><td class="memTemplParams" colspan="2">template&lt;int... Sequence, typename Tuple &gt; </td></tr>
-<tr class="memitem:a93944899a2b6e428570e091171e25cc4"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a93944899a2b6e428570e091171e25cc4">tuple_utils::make_custom_tuple</a> (const Tuple &amp;tuple) -&gt; decltype(details::partitionTuple&lt; Tuple, Sequence...&gt;::part(details::partitionTuple&lt; Tuple, Sequence...&gt;::range, tuple))</td></tr>
-<tr class="separator:a93944899a2b6e428570e091171e25cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4a1c86a6a9e4dd615f6e04880318588"><td class="memTemplParams" colspan="2">template&lt;typename First , typename... Rest&gt; </td></tr>
+<tr class="memitem:af4a1c86a6a9e4dd615f6e04880318588"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils_1_1details.html#af4a1c86a6a9e4dd615f6e04880318588">tuple_utils::details::zip_proxy</a> (std::false_type, First &amp;&amp;first, Rest &amp;&amp;...rest) -&gt; decltype(details::zip_det&lt; 0, tsize_min&lt; typename std::decay&lt; First &gt;::type, typename std::decay&lt; Rest &gt;::type...&gt;::value-1, First, Rest... &gt;::go(first, rest...))</td></tr>
+<tr class="memdesc:af4a1c86a6a9e4dd615f6e04880318588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Proxy function used as a tag dispatcher, performs actual zipping Hit only when there are no empty tuples passed to <a class="el" href="namespacetuple__utils.html#ab347a484ea00df437af1a906f08096d4" title="Zip together values at corresponding indexes of arbitrary number of std::tuples For each index create...">tuple_utils::zip</a>.  <a href="#af4a1c86a6a9e4dd615f6e04880318588">More...</a><br/></td></tr>
+<tr class="separator:af4a1c86a6a9e4dd615f6e04880318588"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65bc2062f3b8713edb6738929520ba94"><td class="memTemplParams" colspan="2">template&lt;typename First , typename... Rest&gt; </td></tr>
+<tr class="memitem:a65bc2062f3b8713edb6738929520ba94"><td class="memTemplItemLeft" align="right" valign="top">std::tuple&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils_1_1details.html#a65bc2062f3b8713edb6738929520ba94">tuple_utils::details::zip_proxy</a> (std::true_type, First &amp;&amp;, Rest &amp;&amp;...)</td></tr>
+<tr class="memdesc:a65bc2062f3b8713edb6738929520ba94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Proxy function used as a tag dispatcher, because one or more tuples were empty it returns empty tuple.  <a href="#a65bc2062f3b8713edb6738929520ba94">More...</a><br/></td></tr>
+<tr class="separator:a65bc2062f3b8713edb6738929520ba94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab347a484ea00df437af1a906f08096d4"><td class="memTemplParams" colspan="2">template&lt;typename... Tuples&gt; </td></tr>
+<tr class="memitem:ab347a484ea00df437af1a906f08096d4"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#ab347a484ea00df437af1a906f08096d4">tuple_utils::zip</a> (Tuples &amp;&amp;...tuples) -&gt; decltype(details::zip_proxy(std::integral_constant&lt; bool, contain_empty&lt; Tuples...&gt;::value &gt;(), std::forward&lt; Tuples &gt;(tuples)...))</td></tr>
+<tr class="memdesc:ab347a484ea00df437af1a906f08096d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zip together values at corresponding indexes of arbitrary number of std::tuples For each index create one std::tuple with values taken from std::tuples passed as arguments.  <a href="#ab347a484ea00df437af1a906f08096d4">More...</a><br/></td></tr>
+<tr class="separator:ab347a484ea00df437af1a906f08096d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a049b21d7509328b53a688e4692030059"><td class="memItemLeft" align="right" valign="top">std::tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a049b21d7509328b53a688e4692030059">tuple_utils::zip</a> ()</td></tr>
+<tr class="memdesc:a049b21d7509328b53a688e4692030059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special case when no arguments are given, simply return empty std::tuple.  <a href="#a049b21d7509328b53a688e4692030059">More...</a><br/></td></tr>
+<tr class="separator:a049b21d7509328b53a688e4692030059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd></dd></dl>

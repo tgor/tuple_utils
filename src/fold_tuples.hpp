@@ -37,7 +37,7 @@ template <
         >
 struct fold_result_type
 {
-    static_assert(contain_empty<Tuples...>::value, "Can not fold empty tuple");
+    static_assert(contain_empty<Tuples...>::value == false, "Can not fold empty tuple");
     using type = decltype(std::tuple_cat(std::make_tuple(
         std::declval<typename result_of_rec<
             FuncType,

@@ -184,11 +184,11 @@ auto c_product(const std::tuple<Args1...>& x)
  * where Ti x Tj is calculated by details::c_product_bin.
  * Example
  * @code
- * auto x = std::make_tuple(6, 3);
- * auto y = std::make_tuple("xxx", 5.3);
- * auto z = std::make_tuple(7, -2);
- * auto res = c_product(x, y, z); //res is std::tuple of std::tuples containing ((6, xxx, 7), (6, xxx, -2),
- * // (6, 5.3, 7), (6, 5.3, -2), (3, xxx, 7), (3, xxx, -2), (3, 5.3, 7), (3, 5.3, -2))
+ *   auto x = std::make_tuple(6, 3);
+ *   auto y = std::make_tuple("xxx", 5.3);
+ *   auto z = std::make_tuple(7, -2);
+ *   auto res = c_product(x, y, z); //res is std::tuple of std::tuples containing ((6, xxx, 7), (6, xxx, -2),
+ *   // (6, 5.3, 7), (6, 5.3, -2), (3, xxx, 7), (3, xxx, -2), (3, 5.3, 7), (3, 5.3, -2))
  * @endcode
  */
 template <

@@ -77,7 +77,7 @@ void TestCartesianProduct::test1tuple()
 
 void TestCartesianProduct::test2tuplesSameSize()
 {
-    auto arg1 = std::make_tuple(1, "test");
+    const auto arg1 = std::make_tuple(1, "test");
     auto result = tuple_utils::c_product(arg1, std::make_tuple(3.3, 4));
 
     static_assert(std::is_same<std::tuple_element<
@@ -213,9 +213,8 @@ void TestCartesianProduct::test3tuplesSameSize()
 
 void TestCartesianProduct::test3tupleDiffSize()
 {
-    auto arg1 = std::make_tuple(1, "test");
     auto arg2 = std::make_tuple(11);
-    auto result = tuple_utils::c_product(arg1, arg2, std::make_tuple(4.4, 0.1f, 5u));
+    auto result = tuple_utils::c_product(std::make_tuple(1, "test"), arg2, std::make_tuple(4.4, 0.1f, 5u));
 
     static_assert(std::is_same<std::tuple_element<
                                                 0,

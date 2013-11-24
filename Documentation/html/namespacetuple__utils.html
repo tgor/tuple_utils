@@ -132,6 +132,13 @@ Functions</h2></td></tr>
 <tr class="memitem:a719394a97da508fa7292001b64fc7043"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a719394a97da508fa7292001b64fc7043">to_string</a> (const std::tuple&lt;&gt; &amp;)</td></tr>
 <tr class="memdesc:a719394a97da508fa7292001b64fc7043"><td class="mdescLeft">&#160;</td><td class="mdescRight">For empty std::tuple return empty std::string.  <a href="#a719394a97da508fa7292001b64fc7043">More...</a><br/></td></tr>
 <tr class="separator:a719394a97da508fa7292001b64fc7043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab347a484ea00df437af1a906f08096d4"><td class="memTemplParams" colspan="2">template&lt;typename... Tuples&gt; </td></tr>
+<tr class="memitem:ab347a484ea00df437af1a906f08096d4"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#ab347a484ea00df437af1a906f08096d4">zip</a> (Tuples &amp;&amp;...tuples) -&gt; decltype(<a class="el" href="namespacetuple__utils_1_1details.html#af4a1c86a6a9e4dd615f6e04880318588">details::zip_proxy</a>(std::integral_constant&lt; bool, contain_empty&lt; Tuples...&gt;::value &gt;(), std::forward&lt; Tuples &gt;(tuples)...))</td></tr>
+<tr class="memdesc:ab347a484ea00df437af1a906f08096d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zip together values at corresponding indexes of arbitrary number of std::tuples For each index create one std::tuple with values taken from std::tuples passed as arguments.  <a href="#ab347a484ea00df437af1a906f08096d4">More...</a><br/></td></tr>
+<tr class="separator:ab347a484ea00df437af1a906f08096d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a049b21d7509328b53a688e4692030059"><td class="memItemLeft" align="right" valign="top">std::tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a049b21d7509328b53a688e4692030059">zip</a> ()</td></tr>
+<tr class="memdesc:a049b21d7509328b53a688e4692030059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special case when no arguments are given, simply return empty std::tuple.  <a href="#a049b21d7509328b53a688e4692030059">More...</a><br/></td></tr>
+<tr class="separator:a049b21d7509328b53a688e4692030059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Utilities for tuples manipulation. </p>
@@ -453,10 +460,57 @@ template&lt;typename... Args&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="ab347a484ea00df437af1a906f08096d4"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Tuples&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto tuple_utils::zip </td>
+          <td>(</td>
+          <td class="paramtype">Tuples &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>tuples</em></td><td>)</td>
+          <td> -&gt; decltype(details::zip_proxy(
+                        std::integral_constant&lt;bool, contain_empty&lt;Tuples...&gt;::value&gt;(),
+                        std::forward&lt;Tuples&gt;(tuples)...
+                    ))
+</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zip together values at corresponding indexes of arbitrary number of std::tuples For each index create one std::tuple with values taken from std::tuples passed as arguments. </p>
+<p>Result will contain tuples created starting from index zero up to index equal to the size of the smalles tuple passed as an argument. Use tag dispatch and <a class="el" href="namespacetuple__utils_1_1details.html#af4a1c86a6a9e4dd615f6e04880318588" title="Proxy function used as a tag dispatcher, performs actual zipping Hit only when there are no empty tup...">details::zip_proxy</a> to check if any std::tuple given as parameter is empty, if so then <a class="el" href="namespacetuple__utils.html#ab347a484ea00df437af1a906f08096d4" title="Zip together values at corresponding indexes of arbitrary number of std::tuples For each index create...">tuple_utils::zip</a> should return empty std::tuple&lt;&gt; Example: </p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> result = <a class="code" href="namespacetuple__utils.html#ab347a484ea00df437af1a906f08096d4">tuple_utils::zip</a>(make_tuple(1, 4, 2.2, <span class="stringliteral">&quot;test&quot;</span>), make_tuple(2, 2.2, 1), make_tuple(4, 6, 9));</div>
+<div class="line"><span class="comment">//result is equal to tuple&lt;tuple&lt;int, int, int&gt;, tuple&lt;double, double, int&gt;, tuple&lt;double, int, int&gt;&gt;</span></div>
+<div class="line"><span class="comment">//and contain values ((1, 2, 4), ((4, 2.2, 6), (2.2, 1, 9))). Notice that value &quot;test&quot; from the first</span></div>
+<div class="line"><span class="comment">//tuple is not used because other tuples have smaller size than the first one.</span></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a class="anchor" id="a049b21d7509328b53a688e4692030059"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::tuple tuple_utils::zip </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Special case when no arguments are given, simply return empty std::tuple. </p>
+<dl class="section return"><dt>Returns</dt><dd>Empty std::tuple&lt;&gt; </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 23 2013 15:10:54 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 24 2013 18:33:31 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

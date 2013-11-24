@@ -7,11 +7,11 @@
 
 var indexSectionsWithContent =
 {
-  0: "acdefgilmoprt",
-  1: "cfmpt",
+  0: "acdefgilmoprtz",
+  1: "cfmptz",
   2: "t",
-  3: "cfmp",
-  4: "acefgimopt",
+  3: "cfmpz",
+  4: "acefgimoptz",
   5: "dlr",
   6: "prt"
 };

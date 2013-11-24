@@ -212,28 +212,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;} <span class="comment">//namespace tuple_utils</span></div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor">#endif // CARTESIAN_PRODUCT_H</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; <span class="comment">/*</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment">int main()</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="comment">{</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="comment"> auto x = std::make_tuple(6, 3);</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="comment"> auto y = std::make_tuple(7, 9, 5);</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="comment"> auto z = std::make_tuple(7);</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="comment"> auto w = std::make_tuple(11, 1);</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="comment"> auto q = std::make_tuple(101);</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="comment"> (void)x,(void)y,(void)z,(void)w,(void)q;</span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="comment"> //test kiedy jedna krotka jest pusta (umiescic w roznych miejscach) - powinnien zwrocic pusta krotke</span></div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment"> auto res = c_product(x, x);</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="comment"> auto x = std::make_tuple(6, 3);</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment"> auto y = std::make_tuple(&quot;xxx&quot;, 5.3);</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment"> auto z = std::make_tuple(7, -2);</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="comment"> auto res = c_product(x, y, z);</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment"> std::cout &lt;&lt; std::tuple_size&lt;decltype(res)&gt;::value &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="comment"> std::cout &lt;&lt; res &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="comment">}*/</span></div>
 <div class="ttc" id="structtuple__utils_1_1details_1_1c__product__type_html_a755c3a9e38bc1df366a6c8cd69455474"><div class="ttname"><a href="structtuple__utils_1_1details_1_1c__product__type.html#a755c3a9e38bc1df366a6c8cd69455474">tuple_utils::details::c_product_type::type</a></div><div class="ttdeci">decltype(c_product_bin(std::declval&lt; typename make_sequence&lt; std::tuple_size&lt; Tuple1 &gt;::value &gt;::type &gt;(), std::declval&lt; Tuple1 &gt;(), std::declval&lt; typename c_product_type&lt; Tuple2, Rest...&gt;::type &gt;())) type</div><div class="ttdef"><b>Definition:</b> cartesian_product.hpp:144</div></div>
 <div class="ttc" id="structtuple__utils_1_1details_1_1c__product__type_3_01Tuple1_00_01Tuple2_01_4_html_adf278f1a921acd62129f267191aff050"><div class="ttname"><a href="structtuple__utils_1_1details_1_1c__product__type_3_01Tuple1_00_01Tuple2_01_4.html#adf278f1a921acd62129f267191aff050">tuple_utils::details::c_product_type&lt; Tuple1, Tuple2 &gt;::type</a></div><div class="ttdeci">decltype(c_product_bin(std::declval&lt; typename make_sequence&lt; std::tuple_size&lt; Tuple1 &gt;::value &gt;::type &gt;(), std::declval&lt; Tuple1 &gt;(), std::declval&lt; Tuple2 &gt;())) type</div><div class="ttdef"><b>Definition:</b> cartesian_product.hpp:162</div></div>
 <div class="ttc" id="structtuple__utils_1_1details_1_1c__product__type_html"><div class="ttname"><a href="structtuple__utils_1_1details_1_1c__product__type.html">tuple_utils::details::c_product_type</a></div><div class="ttdoc">Obtain type of value returned by Cartesian product of N std::tuple&amp;#39;s Recursively determine type of Ca...</div><div class="ttdef"><b>Definition:</b> cartesian_product.hpp:138</div></div>
@@ -247,7 +225,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 23 2013 15:10:53 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 24 2013 18:33:31 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

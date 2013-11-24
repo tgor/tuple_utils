@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>TUPLEUTILS: tuple_utils::details::merge_tuples_det&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, RestArgs...&gt;::merge_unroll&lt; ResultCurr, ArgBegin, ArgEnd &gt; Struct Template Reference</title>
+<title>TUPLEUTILS: tuple_utils::details::zip_det&lt; Curr, End, Tuple &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,74 +82,62 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacetuple__utils.html">tuple_utils</a></li><li class="navelem"><a class="el" href="namespacetuple__utils_1_1details.html">details</a></li><li class="navelem"><a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_5dc2225007018bd5fa8bb9775801f74b.html">merge_tuples_det< std::tuple< Args1...>, std::tuple< Args2...>, RestArgs...></a></li><li class="navelem"><a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_92da8c001722a49f0fab8a06bfc7f291.html">merge_unroll</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacetuple__utils.html">tuple_utils</a></li><li class="navelem"><a class="el" href="namespacetuple__utils_1_1details.html">details</a></li><li class="navelem"><a class="el" href="structtuple__utils_1_1details_1_1zip__det.html">zip_det</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">tuple_utils::details::merge_tuples_det&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, RestArgs...&gt;::merge_unroll&lt; ResultCurr, ArgBegin, ArgEnd &gt; Struct Template Reference</div>  </div>
+<div class="title">tuple_utils::details::zip_det&lt; Curr, End, Tuple &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>For each tuple from merge function arguments copy its content to the resulting std::tuple Called recursively with the recursion depth equal to the size of currently processed std::tuple (i.e.  
- <a href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_92da8c001722a49f0fab8a06bfc7f291.html#details">More...</a></p>
+<p>Create std::tuple of std::tuples with elements equal to elements from tuples at given positions Each std::tuple in resulting std::tuple contains elements from tuples given as parameters.  
+ <a href="structtuple__utils_1_1details_1_1zip__det.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="merge__tuples_8hpp_source.html">merge_tuples.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="zip__tuples_8hpp_source.html">zip_tuples.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a958bb00c82818933e766031222cebe7f"><td class="memTemplParams" colspan="2">template&lt;typename... ResArgs, typename... VarArgs&gt; </td></tr>
-<tr class="memitem:a958bb00c82818933e766031222cebe7f"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_92da8c001722a49f0fab8a06bfc7f291.html#a958bb00c82818933e766031222cebe7f">go</a> (std::tuple&lt; ResArgs...&gt; &amp;result, const std::tuple&lt; VarArgs...&gt; &amp;arg)</td></tr>
-<tr class="memdesc:a958bb00c82818933e766031222cebe7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy one value from arg to the result, called recursively.  <a href="#a958bb00c82818933e766031222cebe7f">More...</a><br/></td></tr>
-<tr class="separator:a958bb00c82818933e766031222cebe7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c5cbb425e533d9c6a19cdca7808ba4f"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtuple__utils_1_1details_1_1zip__det.html#a1c5cbb425e533d9c6a19cdca7808ba4f">go</a> (const Tuple &amp;...tuple) -&gt; decltype(std::tuple_cat(std::make_tuple(std::make_tuple(std::get&lt; Curr &gt;(tuple)...)), <a class="el" href="structtuple__utils_1_1details_1_1zip__det.html">zip_det</a>&lt; Curr+1, End, Tuple...&gt;::go(tuple...)))</td></tr>
+<tr class="memdesc:a1c5cbb425e533d9c6a19cdca7808ba4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill resulting std::tuple with values at given index recursively Create std::tuple and fill it using pack expansion so that in one step values from all arguments are used.  <a href="#a1c5cbb425e533d9c6a19cdca7808ba4f">More...</a><br/></td></tr>
+<tr class="separator:a1c5cbb425e533d9c6a19cdca7808ba4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename... Args1, typename... Args2, typename... RestArgs&gt;<br/>
-template&lt;std::size_t ResultCurr, std::size_t ArgBegin, std::size_t ArgEnd&gt;<br/>
-struct tuple_utils::details::merge_tuples_det&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, RestArgs...&gt;::merge_unroll&lt; ResultCurr, ArgBegin, ArgEnd &gt;</h3>
+<div class="textblock"><h3>template&lt;std::size_t Curr, std::size_t End, typename... Tuple&gt;<br/>
+struct tuple_utils::details::zip_det&lt; Curr, End, Tuple &gt;</h3>
 
-<p>For each tuple from merge function arguments copy its content to the resulting std::tuple Called recursively with the recursion depth equal to the size of currently processed std::tuple (i.e. </p>
-<p>ArgEnd value). In each step copy one value from processed std::tuple to the result and call <a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det_3_01std_1_1tuple_3_01Args1_8_8_8_4_00_01std_92da8c001722a49f0fab8a06bfc7f291.html" title="For each tuple from merge function arguments copy its content to the resulting std::tuple Called recu...">merge_unroll</a> for the next element, until the end of the currently processed std::tuple. </p>
+<p>Create std::tuple of std::tuples with elements equal to elements from tuples at given positions Each std::tuple in resulting std::tuple contains elements from tuples given as parameters. </p>
+<p>They are constructed in such a way that index of resulting std::tuples describes which values from passed tuples will they contain (e.g. tuple at index zero in result will contain all values at index zero from tuples passed). Each tuple is constructed recursively from index 0 to End, where End is equal to the size of the smallest tuple from parameter pack. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">ResultCurr</td><td>- current position in result-from-merge std::tuple, each time updated by 1 </td></tr>
-    <tr><td class="paramname">ArgBegin</td><td>- current position in the current std::tuple given as merge argument </td></tr>
-    <tr><td class="paramname">ArgEnd</td><td>- size of one of current std::tuple given as merge argument, used to stop unrolling </td></tr>
+    <tr><td class="paramname">Curr</td><td>- current index which will be used to get values </td></tr>
+    <tr><td class="paramname">End</td><td>- size of the smallest tuple passed through Tuple... parameter pack </td></tr>
+    <tr><td class="paramname">Tuple...</td><td>- parameter pack containing types of std::tuple's passed to <a class="el" href="namespacetuple__utils.html#ab347a484ea00df437af1a906f08096d4" title="Zip together values at corresponding indexes of arbitrary number of std::tuples For each index create...">tuple_utils::zip</a> </td></tr>
   </table>
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a958bb00c82818933e766031222cebe7f"></a>
+<a class="anchor" id="a1c5cbb425e533d9c6a19cdca7808ba4f"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... Args1, typename... Args2, typename... RestArgs&gt; </div>
-<div class="memtemplate">
-template&lt;std::size_t ResultCurr, std::size_t ArgBegin, std::size_t ArgEnd&gt; </div>
-<div class="memtemplate">
-template&lt;typename... ResArgs, typename... VarArgs&gt; </div>
+template&lt;std::size_t Curr, std::size_t End, typename... Tuple&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void <a class="el" href="structtuple__utils_1_1details_1_1merge__tuples__det.html">tuple_utils::details::merge_tuples_det</a>&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, RestArgs...&gt;::merge_unroll&lt; ResultCurr, ArgBegin, ArgEnd &gt;::go </td>
+          <td class="memname">static auto <a class="el" href="structtuple__utils_1_1details_1_1zip__det.html">tuple_utils::details::zip_det</a>&lt; Curr, End, Tuple &gt;::go </td>
           <td>(</td>
-          <td class="paramtype">std::tuple&lt; ResArgs...&gt; &amp;&#160;</td>
-          <td class="paramname"><em>result</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::tuple&lt; VarArgs...&gt; &amp;&#160;</td>
-          <td class="paramname"><em>arg</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const Tuple &amp;...&#160;</td>
+          <td class="paramname"><em>tuple</em></td><td>)</td>
+          <td> -&gt; decltype(std::tuple_cat(
+                            std::make_tuple(std::make_tuple(std::get&lt;Curr&gt;(tuple)...)),
+                            <a class="el" href="structtuple__utils_1_1details_1_1zip__det.html">zip_det</a>&lt;Curr + 1, End, Tuple...&gt;::go(tuple...)
+                        ))
+    </td>
         </tr>
       </table>
   </td>
@@ -159,13 +147,20 @@ template&lt;typename... ResArgs, typename... VarArgs&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Copy one value from arg to the result, called recursively. </p>
-<p>Copy value from the ArgBegin position from arg to the result at the ResultCurr position. Recursively called for the next element, so it increases both ResultCurr and ArgBegin </p>
+<p>Fill resulting std::tuple with values at given index recursively Create std::tuple and fill it using pack expansion so that in one step values from all arguments are used. </p>
+<p>Increment index and call itself recursively until index hits end. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tuple</td><td>- arbitrary number of tuples to be zipped </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>tuple&lt;tuple&lt;get&lt;0&gt;(args)...&gt;, tuple&lt;get&lt;1&gt;(args)&gt;...&gt;,... tuple&lt;get&lt;N&gt;(args)...&gt;&gt; </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="merge__tuples_8hpp_source.html">merge_tuples.hpp</a></li>
+<li><a class="el" href="zip__tuples_8hpp_source.html">zip_tuples.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
