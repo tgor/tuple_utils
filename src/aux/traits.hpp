@@ -146,7 +146,7 @@ template <
 struct contain_empty : private static_
 {
     using CT = typename std::decay<T>::type;
-    static constexpr bool value = std::tuple_size<CT>::value && contain_empty<Rest...>::value;
+    static constexpr bool value = !std::tuple_size<CT>::value || contain_empty<Rest...>::value;
 };
 
 /**
@@ -159,7 +159,7 @@ template <
 struct contain_empty<T> : private static_
 {
     using CT = typename std::decay<T>::type;
-    static constexpr bool value = std::tuple_size<CT>::value;
+    static constexpr bool value = !std::tuple_size<CT>::value;
 };
 
 } // namespace tuple_utils
