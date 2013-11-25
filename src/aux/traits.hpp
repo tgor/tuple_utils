@@ -15,42 +15,6 @@ namespace tuple_utils
 {
 
 /**
- * @brief Traits for getting one common type from a list of types
- * Internally uses and works like std::common_type, but allows variable number of parameters
- */
-template <
-        typename T,
-        typename... Args
-        >
-struct common_type_var : private static_
-{
-    using type = typename std::common_type<T, typename common_type_var<Args...>::type>::type;
-};
-
-/**
- * @brief Last step of recursive common_type_var<>::type, for two types gives simple std::common_type<>::type
- */
-template <
-        typename T,
-        typename Y
-        >
-struct common_type_var<T, Y> : private static_
-{
-    using type = typename std::common_type<T, Y>::type;
-};
-
-/**
- * @brief Special case when common_type_var is parameterized with only one type
- */
-template <
-        typename T
-        >
-struct common_type_var<T> : private static_
-{
-    using type = T;
-};
-
-/**
  * @brief Obtains smallest size for the number of given tuples
  */
 template <typename T, typename... Args>
