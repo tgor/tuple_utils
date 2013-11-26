@@ -173,6 +173,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ad669fc9e03830c41783d8a8e7fe1ed74"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils_1_1details.html#ad669fc9e03830c41783d8a8e7fe1ed74">c_product_bin</a> (sequence&lt; Seq1...&gt;, const std::tuple&lt; Args1...&gt; &amp;x, const std::tuple&lt; Args2...&gt; &amp;y) -&gt; decltype(std::tuple_cat(<a class="el" href="namespacetuple__utils_1_1details.html#aa08031d72ab23fe567cf3fefb6e7b5e5">c_product_line</a>&lt; Seq1 &gt;(x, y, typename make_sequence&lt; sizeof...(Args2)&gt;::type())...))</td></tr>
 <tr class="memdesc:ad669fc9e03830c41783d8a8e7fe1ed74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return Cartesian product of two std::tuples For each value from the first argument combine it with each value from the second argument and return std::tuple with results.  <a href="#ad669fc9e03830c41783d8a8e7fe1ed74">More...</a><br/></td></tr>
 <tr class="separator:ad669fc9e03830c41783d8a8e7fe1ed74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0801e6e6a7746416c6fd3b2e75c2ac7b"><td class="memTemplParams" colspan="2">template&lt;typename Func , typename Tuple , std::size_t... Seq&gt; </td></tr>
+<tr class="memitem:a0801e6e6a7746416c6fd3b2e75c2ac7b"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils_1_1details.html#a0801e6e6a7746416c6fd3b2e75c2ac7b">explode_det</a> (Func &amp;&amp;func, Tuple &amp;&amp;tuple, sequence&lt; Seq...&gt;) -&gt; decltype(func(std::forward&lt; typename std::tuple_element&lt; Seq, Tuple &gt;::type &gt;(std::get&lt; Seq &gt;(tuple))...))</td></tr>
+<tr class="memdesc:a0801e6e6a7746416c6fd3b2e75c2ac7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function which calls function 'func' for 'tuple' elements Use pack expansion to get each tuple element and forward those values into function 'func'.  <a href="#a0801e6e6a7746416c6fd3b2e75c2ac7b">More...</a><br/></td></tr>
+<tr class="separator:a0801e6e6a7746416c6fd3b2e75c2ac7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef84c229fa5c84672f891fd53cc56763"><td class="memTemplParams" colspan="2">template&lt;typename FuncType , typename Y , typename Z &gt; </td></tr>
 <tr class="memitem:aef84c229fa5c84672f891fd53cc56763"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils_1_1details.html#aef84c229fa5c84672f891fd53cc56763">invoke_helper</a> (FuncType f, Y &amp;beforelast, Z &amp;last) -&gt; typename result_of_rec&lt; FuncType, Y, Z &gt;::type</td></tr>
 <tr class="memdesc:aef84c229fa5c84672f891fd53cc56763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Last recursive call for invoke_helper function.  <a href="#aef84c229fa5c84672f891fd53cc56763">More...</a><br/></td></tr>
@@ -353,6 +357,43 @@ template&lt;std::size_t I, std::size_t J, typename... Args1, typename... Args2&g
 <div class="line">c_product_one&lt;0,0&gt;(make_tuple(1,2), make_tuple(make_tuple(31, 41), make_tuple(32,42)); <span class="comment">//results</span></div>
 <div class="line"><span class="comment">//in std::tuple&lt;int,int,int&gt;(1,31,41)</span></div>
 </div><!-- fragment --> 
+</div>
+</div>
+<a class="anchor" id="a0801e6e6a7746416c6fd3b2e75c2ac7b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Func , typename Tuple , std::size_t... Seq&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto tuple_utils::details::explode_det </td>
+          <td>(</td>
+          <td class="paramtype">Func &amp;&amp;&#160;</td>
+          <td class="paramname"><em>func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Tuple &amp;&amp;&#160;</td>
+          <td class="paramname"><em>tuple</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sequence&lt; Seq...&gt;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> -&gt; decltype(func(std::forward&lt;typename std::tuple_element&lt;Seq, Tuple&gt;::type&gt;(std::get&lt;Seq&gt;(tuple))...))
+</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Helper function which calls function 'func' for 'tuple' elements Use pack expansion to get each tuple element and forward those values into function 'func'. </p>
+
 </div>
 </div>
 <a class="anchor" id="aeff86d608297d50c3aaef81675bafdf7"></a>
@@ -612,7 +653,7 @@ template&lt;typename First , typename... Rest&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 24 2013 18:33:31 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 26 2013 19:08:35 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

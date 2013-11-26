@@ -107,6 +107,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ac76a5c539f95607f7d0b7b305162fe28"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#ac76a5c539f95607f7d0b7b305162fe28">c_product</a> (const std::tuple&lt; Args1...&gt; &amp;x, const std::tuple&lt; Args2...&gt; &amp;y, const Rest &amp;...rest) -&gt; typename <a class="el" href="structtuple__utils_1_1details_1_1c__product__type.html">details::c_product_type</a>&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, Rest...&gt;::type</td></tr>
 <tr class="memdesc:ac76a5c539f95607f7d0b7b305162fe28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate n-ary Cartesian product over n std::tuple's Given n std::tuples T1, T2, T3, ..., Tn it calculates (T1 x (T2 x (T3 x (...  <a href="#ac76a5c539f95607f7d0b7b305162fe28">More...</a><br/></td></tr>
 <tr class="separator:ac76a5c539f95607f7d0b7b305162fe28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8155db532a3428ca6f1869d1cefbcb45"><td class="memTemplParams" colspan="2">template&lt;typename Func , typename Tuple &gt; </td></tr>
+<tr class="memitem:a8155db532a3428ca6f1869d1cefbcb45"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a8155db532a3428ca6f1869d1cefbcb45">explode</a> (Func &amp;&amp;func, Tuple &amp;&amp;tuple) -&gt; decltype(<a class="el" href="namespacetuple__utils_1_1details.html#a0801e6e6a7746416c6fd3b2e75c2ac7b">details::explode_det</a>(std::forward&lt; Func &gt;(func), std::forward&lt; typename std::decay&lt; Tuple &gt;::type &gt;(tuple), typename make_sequence&lt; std::tuple_size&lt; typename std::decay&lt; Tuple &gt;::type &gt;::value &gt;::type()))</td></tr>
+<tr class="memdesc:a8155db532a3428ca6f1869d1cefbcb45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explode contents of std::tuple so they could be used as arguments by a function 'func' Take function f with argument types X, Y, ..., Z and std::tuple&lt;X, Y, ..., Z&gt; and call f with arguments values extracted from the given tuple.  <a href="#a8155db532a3428ca6f1869d1cefbcb45">More...</a><br/></td></tr>
+<tr class="separator:a8155db532a3428ca6f1869d1cefbcb45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7723d23c77531127b5183e4c542904ea"><td class="memTemplParams" colspan="2">template&lt;typename FuncType , typename... Tuples&gt; </td></tr>
 <tr class="memitem:a7723d23c77531127b5183e4c542904ea"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a7723d23c77531127b5183e4c542904ea">fold</a> (const FuncType &amp;f, Tuples &amp;&amp;...args) -&gt; typename <a class="el" href="structtuple__utils_1_1details_1_1fold__result__type.html">details::fold_result_type</a>&lt; 0, tsize_min&lt; Tuples...&gt;::value-1, FuncType, Tuples...&gt;::type</td></tr>
 <tr class="separator:a7723d23c77531127b5183e4c542904ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -253,6 +257,52 @@ template&lt;typename... Args1, typename... Args2, typename... Rest&gt; </div>
 <p></p>
 <p>Change delimiter used to separate printed elements of std::tuple Delimiter is not limited to just one sign, could contain whole string instead. Initial value is set to ", " </p>
 
+</div>
+</div>
+<a class="anchor" id="a8155db532a3428ca6f1869d1cefbcb45"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Func , typename Tuple &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto tuple_utils::explode </td>
+          <td>(</td>
+          <td class="paramtype">Func &amp;&amp;&#160;</td>
+          <td class="paramname"><em>func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Tuple &amp;&amp;&#160;</td>
+          <td class="paramname"><em>tuple</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> -&gt; decltype(details::explode_det(
+                std::forward&lt;Func&gt;(func),
+                std::forward&lt;typename std::decay&lt;Tuple&gt;::type&gt;(tuple),
+                typename make_sequence&lt;std::tuple_size&lt;typename std::decay&lt;Tuple&gt;::type&gt;::value&gt;::type()
+            ))
+</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Explode contents of std::tuple so they could be used as arguments by a function 'func' Take function f with argument types X, Y, ..., Z and std::tuple&lt;X, Y, ..., Z&gt; and call f with arguments values extracted from the given tuple. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Func</td><td>- type of function which will be called for tuple elements </td></tr>
+    <tr><td class="paramname">Tuple</td><td>- std::tuple type passed as an argument </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Result of function f called for values from inside argument tuple.</dd></dl>
+<p>Example: </p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> lambda = [](<span class="keywordtype">float</span> i, <span class="keywordtype">int</span> j){ <span class="keywordflow">return</span> j * 2 + i; };</div>
+<div class="line"><span class="keyword">auto</span> result = <a class="code" href="namespacetuple__utils.html#a8155db532a3428ca6f1869d1cefbcb45">tuple_utils::explode</a>(lambda, std::make_tuple(4.4, 5)); <span class="comment">//result == 14.4f</span></div>
+</div><!-- fragment --> 
 </div>
 </div>
 <a class="anchor" id="a7723d23c77531127b5183e4c542904ea"></a>
@@ -510,7 +560,7 @@ template&lt;typename... Tuples&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 24 2013 18:33:31 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 26 2013 19:08:35 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

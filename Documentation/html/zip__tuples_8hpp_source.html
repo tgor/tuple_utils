@@ -187,7 +187,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;}<span class="comment">//namespace tuple_utils</span></div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor">#endif // FOLD_TUPLES_H</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor">#endif // ZIP_TUPLES_H</span></div>
 <div class="ttc" id="structtuple__utils_1_1details_1_1zip__det_3_01End_00_01End_00_01Tuple_8_8_8_4_html_ae1de2b20052720b4cc311c9b52363b97"><div class="ttname"><a href="structtuple__utils_1_1details_1_1zip__det_3_01End_00_01End_00_01Tuple_8_8_8_4.html#ae1de2b20052720b4cc311c9b52363b97">tuple_utils::details::zip_det&lt; End, End, Tuple...&gt;::go</a></div><div class="ttdeci">static auto go(const Tuple &amp;...tuple) -&gt; decltype(std::make_tuple(std::make_tuple(std::get&lt; End &gt;(tuple)...)))</div><div class="ttdoc">Return nested std::tuple with values from End index taken from arguments After getting values at End ...</div><div class="ttdef"><b>Definition:</b> zip_tuples.hpp:74</div></div>
 <div class="ttc" id="namespacetuple__utils_1_1details_html_af4a1c86a6a9e4dd615f6e04880318588"><div class="ttname"><a href="namespacetuple__utils_1_1details.html#af4a1c86a6a9e4dd615f6e04880318588">tuple_utils::details::zip_proxy</a></div><div class="ttdeci">auto zip_proxy(std::false_type, First &amp;&amp;first, Rest &amp;&amp;...rest) -&gt; decltype(details::zip_det&lt; 0, tsize_min&lt; typename std::decay&lt; First &gt;::type, typename std::decay&lt; Rest &gt;::type...&gt;::value-1, First, Rest... &gt;::go(first, rest...))</div><div class="ttdoc">Proxy function used as a tag dispatcher, performs actual zipping Hit only when there are no empty tup...</div><div class="ttdef"><b>Definition:</b> zip_tuples.hpp:89</div></div>
 <div class="ttc" id="structtuple__utils_1_1details_1_1zip__det_html_a1c5cbb425e533d9c6a19cdca7808ba4f"><div class="ttname"><a href="structtuple__utils_1_1details_1_1zip__det.html#a1c5cbb425e533d9c6a19cdca7808ba4f">tuple_utils::details::zip_det::go</a></div><div class="ttdeci">static auto go(const Tuple &amp;...tuple) -&gt; decltype(std::tuple_cat(std::make_tuple(std::make_tuple(std::get&lt; Curr &gt;(tuple)...)), zip_det&lt; Curr+1, End, Tuple...&gt;::go(tuple...)))</div><div class="ttdoc">Fill resulting std::tuple with values at given index recursively Create std::tuple and fill it using ...</div><div class="ttdef"><b>Definition:</b> zip_tuples.hpp:46</div></div>
@@ -196,7 +196,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 24 2013 18:33:31 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 26 2013 19:08:35 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>
