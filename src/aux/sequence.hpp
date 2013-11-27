@@ -17,17 +17,17 @@ namespace tuple_utils
 {
 
 //forward declaration
-template <std::size_t...>
+template <int...>
 struct sequence;
 
 /**
- *@brief Class parametrized with variable number of std::size_t's, used only to keep those values
- *Values used as template parameters will be used at compile time by other structs. Private method
- *static void print() is used for testing purposes.
+ * @brief Class parametrized with variable number of int's, used only to keep those values.
+ * Values used as template parameters will be used at compile time by other structs. Private method
+ * static void print::size_t() is used for testing purposes.
  */
 template <
-        std::size_t I,
-        std::size_t... N
+        int I,
+        int... N
         >
 struct sequence<I, N...>
 {
@@ -40,10 +40,10 @@ struct sequence<I, N...>
 };
 
 /**
- *Class used by recursive call to print() method, used for testing purposes.
+ * @brief Class used by recursive call to print::size_t() method, used for testing purposes.
  */
 template <
-        std::size_t I
+        int I
         >
 struct sequence<I>
 {
@@ -55,7 +55,7 @@ struct sequence<I>
 };
 
 /**
- *@brief Empty sequence, useful when operating on empty tuples
+ * @brief Empty sequence, useful when operating on empty tuples.
  */
 template <>
 struct sequence<>
@@ -67,58 +67,73 @@ namespace details
 
 //forward declaration
 template <
-        std::size_t Min,
-        std::size_t Step,
-        std::size_t Max,
-        std::size_t Curr,
+        int Min,
+        int Step,
+        int Max,
+        int Curr,
         typename,
-        std::size_t... Args
+        int... Args
         >
 struct sequence_det;
 
 /**
- *@brief Helper struct used by make_sequence, generates sequence by adding elements to a parameters pack
- *In each step it adds next element after the prevoius ones, starting with Min value and in each
- *step adding Step until it exceeds Max value. std::enable_if is used to check if next step is not greater
- *than Max, if so, special case of sequence_det is used and sequence is completed.
+ * @brief Helper struct used by make_sequence, generates sequence by adding elements to a parameters pack.
+ * In each step it adds next element after the prevoius ones, starting with Min value and in each
+ * step adding Step until it exceeds Max value. std::enable_if is used to check if next step is not greater
+ * than Max (or if Step is less than zero if next step is not less than Min), if so, special case of
+ * sequence_det is used and sequence is completed.
  */
 template <
-        std::size_t Min,
-        std::size_t Step,
-        std::size_t Max,
-        std::size_t Curr,
-        std::size_t... Tail
+        int Min,
+        int Step,
+        int Max,
+        int Curr,
+        int... Tail
         >
-struct sequence_det<Min, Step, Max, Curr, typename std::enable_if<(Curr + Step < Max)>::type, Tail...>
- : sequence_det<Min, Step, Max, Curr + Step, void, Tail..., Curr + Step>
+struct sequence_det<
+        Min,
+        Step,
+        Max,
+        Curr,
+        typename std::enable_if<((Step >= 0) && (Curr + Step < Max)) || ((Step <= 0) && (Curr + Step > Max))>::type,
+        Tail...
+        > : sequence_det<Min, Step, Max, Curr + Step, void, Tail..., Curr + Step>
 { };
 
 /**
- *@brief Last recursive step of sequence_det, hit when iterating from Min to Max with Step interval
- *It is used when next step is greater than Max, it is time to collect values and put them into sequence
- *parameters.
+ * @brief Last recursive step of sequence_det, hit when iterating from Min to Max with Step interval.
+ * It is used when next step is greater than Max (or if Step is less than zero if next step is not less than Min), it
+ * is time to collect values and put them into sequence parameters.
  */
 template <
-        std::size_t Min,
-        std::size_t Step,
-        std::size_t Max,
-        std::size_t Curr,
-        std::size_t... Tail
+        int Min,
+        int Step,
+        int Max,
+        int Curr,
+        int... Tail
         >
-struct sequence_det<Min, Step, Max, Curr, typename std::enable_if<(Curr + Step >= Max)>::type, Tail...>
+struct sequence_det<
+        Min,
+        Step,
+        Max,
+        Curr,
+        typename std::enable_if<((Step >= 0) && (Curr + Step >= Max)) || ((Step <= 0) && (Curr + Step <= Max))>::type,
+        Tail...
+        >
 {
- static_assert(Min <= Max, "Min is greater than Max");
- using seq = sequence<Min, Tail...>;
+    static_assert((Step > 0 && Min <= Max) || (Step < 0 && Min >= Max), "Invalid sequence");
+    using seq = sequence<Min, Tail...>;
 };
 
 } //namespace details
 ///@endinternal
 
 /**
- *@brief Create seqence from Min to Max with Step interval (Min, Min + Step, Min + 2*Step,... Max)
- *Default values allow to use it with only Max template parameter value so it
- *generates seqence 0, 1, 2,... Max. If Max is not a multiple of Min + X * Step values, then last value
- *in series less than Max is added to the sequence
+ * @brief Create seqence from Min to Max with Step interval (Min, Min + Step, Min + 2*Step,... Max).
+ * Default values allow to use it with only Max template parameter value so it
+ * generates seqence 0, 1, 2,... Max. If Max is not a multiple of Min + X * Step values, then last value
+ * in series less than Max is added to the sequence. It can be used to create reverse sequence, just use
+ * Min > Max and Step < 0.
  */
 template <
         int Max,
@@ -131,7 +146,7 @@ struct make_sequence
 };
 
 /**
- *@brief Special case when Min == Max, generate empty sequence
+ * @brief Special case when Min == Max, generate empty sequence.
  */
 template <
         int Max,

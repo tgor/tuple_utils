@@ -23,7 +23,7 @@ namespace details
 {
 
 /**
- * @brief Glue value of arbitrary type T with std::tuple's passed as arguments
+ * @brief Glue value of arbitrary type T with std::tuple's passed as arguments.
  * Simply creates a std::tuple from 'value' and uses tuple_utils::merge to merge
  * all arguments into one std::tuple
  */
@@ -39,7 +39,7 @@ auto glue(const T& value, const std::tuple<Args...>& tuple, const Rest&... rest)
 }
 
 /**
- * @brief Glue two values together into std::tuple
+ * @brief Glue two values together into std::tuple.
  * Behaves in exactly the same way as std::make_tuple, needed by the tuple_utils::c_product
  */
 template <
@@ -53,7 +53,7 @@ auto glue(const T& x, const Y& y)
 }
 
 /**
- * @brief Combine two values from two tuples together
+ * @brief Combine two values from two tuples together.
  * Combine the value at position I from the first argument with the value at position J from the
  * second argument. If first argument is std::tuple and second argument is std::tuple of std::tuples
  * then it glues value from the first argument to std::tuple at position J from the second argument.
@@ -65,8 +65,8 @@ auto glue(const T& x, const Y& y)
  * @endcode
  */
 template <
-        std::size_t I,
-        std::size_t J,
+        int I,
+        int J,
         typename... Args1,
         typename... Args2
         >
@@ -77,11 +77,12 @@ auto c_product_one(const std::tuple<Args1...>& x, const std::tuple<Args2...>& y)
 }
 
 /**
- * @brief Combine value given at position I from the first tuple with each value from the second tuple
+ * @brief Combine value given at position I from the first tuple with each value from the second tuple.
  * Use sequence Seq2 equal to <0, 1,... , sizeof...(Args2)> to call c_product_one multiple times (with pack
  * expansion). On each time value at position I from the first tuple is combined with next value from the
  * second tuple. Whole operation creates sizeof...(Args2) tuples which are aggregated into one std::tuple,
  * so the type of returned value is equal to std::tuple of std::tuple's.
+ *
  * Example:
  * @code
  * auto res = c_product_line<0>(std::make_tuple(1,2), std::make_tuple(3,4,5));
@@ -90,8 +91,8 @@ auto c_product_one(const std::tuple<Args1...>& x, const std::tuple<Args2...>& y)
  * @endcode
  */
 template <
-        std::size_t I,
-        std::size_t... Seq2,
+        int I,
+        int... Seq2,
         typename... Args1,
         typename... Args2
         >
@@ -102,11 +103,12 @@ auto c_product_line(const std::tuple<Args1...>& x, const std::tuple<Args2...>& y
 }
 
 /**
- * @brief Return Cartesian product of two std::tuples
+ * @brief Return Cartesian product of two std::tuples.
  * For each value from the first argument combine it with each value from the second argument and return
  * std::tuple with results. Use sequence Seq1 equal to <0, 1,... , sizeof...(Args1)> to call c_product_line
  * multiple times (with pack expansion). Each call to c_product_line will combine one value from the first
  * argument with each value from the second one.
+ *
  * Example:
  * @code
  * auto res = c_product_bin(std::make_tuple(1,2), std::make_tuple(3,4));
@@ -115,7 +117,7 @@ auto c_product_line(const std::tuple<Args1...>& x, const std::tuple<Args2...>& y
  * @endcode
  */
 template <
-        std::size_t... Seq1,
+        int... Seq1,
         typename... Args1,
         typename... Args2
         >
@@ -126,7 +128,7 @@ auto c_product_bin(sequence<Seq1...>, const std::tuple<Args1...>& x, const std::
 }
 
 /**
- * @brief Obtain type of value returned by Cartesian product of N std::tuple's
+ * @brief Obtain type of value returned by Cartesian product of N std::tuple's.
  * Recursively determine type of Cartesian product of type resulted by Cartesian product of the last
  * before-last arguments and third-to-last value. Stop when there are only two arguments.
  */
@@ -145,7 +147,7 @@ struct c_product_type
 };
 
 /**
- * @brief Obtain type of value returned by Cartesian product of two std::tuple's
+ * @brief Obtain type of value returned by Cartesian product of two std::tuple's.
  * Used as a last recursive step in process of obtaining return type of Cartesian
  * product of N std::tuple's
  */
@@ -165,7 +167,7 @@ struct c_product_type<Tuple1, Tuple2>
 } //namespace details
 
 /**
- * @brief Calculate value of Cartesian product of one std::tuple
+ * @brief Calculate value of Cartesian product of one std::tuple.
  * Simply returns value of the given argument. Used as a last step by tuple_utils::c_product
  * invoked for more than one std::tuple
  */
@@ -179,10 +181,11 @@ auto c_product(const std::tuple<Args1...>& x)
 }
 
 /**
- * @brief Calculate n-ary Cartesian product over n std::tuple's
+ * @brief Calculate n-ary Cartesian product over n std::tuple's.
  * Given n std::tuples T1, T2, T3, ..., Tn it calculates (T1 x (T2 x (T3 x (... x (T(n-1) x Tn)))))
  * where Ti x Tj is calculated by details::c_product_bin.
- * Example
+ *
+ * Example:
  * @code
  *   auto x = std::make_tuple(6, 3);
  *   auto y = std::make_tuple("xxx", 5.3);

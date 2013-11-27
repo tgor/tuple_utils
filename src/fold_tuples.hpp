@@ -30,8 +30,8 @@ namespace details
  * @tparam Tuples... - types of tuple_utils::fold arguments
  */
 template <
-        std::size_t Curr,
-        std::size_t Last,
+        int Curr,
+        int Last,
         typename FuncType,
         typename... Tuples
         >
@@ -51,7 +51,7 @@ struct fold_result_type
  * @brief Last recursive step of fold_result_type. Determine type at last postition in std::tuple returned from fold
  */
 template <
-        std::size_t Last,
+        int Last,
         typename FuncType,
         typename... Tuples
         >
@@ -127,8 +127,8 @@ auto invoke_helper(FuncType f, Y& onlyOne)
  * @tparam End - value of the std::tuple_size<X>::value, ends loop unrolling
  */
 template <
-        std::size_t Begin,
-        std::size_t End
+        int Begin,
+        int End
         >
 struct tuple_fold_det
 {
@@ -157,7 +157,7 @@ struct tuple_fold_det
  * Partial template specialization used to call fold_helper for the one past last tuple element.
  */
 template <
-        std::size_t End
+        int End
         >
 struct tuple_fold_det<End, End>
 {

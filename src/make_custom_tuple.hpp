@@ -37,7 +37,7 @@ void assign(L& left, const R& right)
  */
 template <
         typename Tuple,
-        std::size_t... Sequence
+        int... Sequence
         >
 struct tupleTypeFromSequence;
 
@@ -46,15 +46,16 @@ struct tupleTypeFromSequence;
  */
 template <
         typename Tuple,
-        std::size_t First,
-        std::size_t... Sequence
+        int First,
+        int... Sequence
         >
 struct tupleTypeFromSequence<Tuple, First, Sequence...>
 {
-    static_assert(First < std::tuple_size<Tuple>::value, "Too big indice");
+    using CTuple = typename std::decay<Tuple>::type;
+    static_assert(First < std::tuple_size<CTuple>::value, "Too big indice");
     using type = decltype(std::tuple_cat(
-    std::declval<std::tuple<typename std::tuple_element<First, Tuple>::type>>(),
-    std::declval<typename tupleTypeFromSequence<Tuple, Sequence...>::type>()
+    std::declval<std::tuple<typename std::tuple_element<First, CTuple>::type>>(),
+    std::declval<typename tupleTypeFromSequence<CTuple, Sequence...>::type>()
     ));
 };
 
@@ -63,16 +64,17 @@ struct tupleTypeFromSequence<Tuple, First, Sequence...>
  */
 template <
         typename Tuple,
-        std::size_t BeforeLast,
-        std::size_t Last
+        int BeforeLast,
+        int Last
         >
 struct tupleTypeFromSequence<Tuple, BeforeLast, Last>
 {
-    static_assert(BeforeLast < std::tuple_size<Tuple>::value && 
-        Last < std::tuple_size<Tuple>::value, "Too big indice");
+    using CTuple = typename std::decay<Tuple>::type;
+    static_assert(BeforeLast < std::tuple_size<CTuple>::value &&
+        Last < std::tuple_size<CTuple>::value, "Too big indice");
     using type = std::tuple<
-        typename std::tuple_element<BeforeLast, Tuple>::type, 
-        typename std::tuple_element<Last, Tuple>::type
+        typename std::tuple_element<BeforeLast, CTuple>::type,
+        typename std::tuple_element<Last, CTuple>::type
     >;
 };
 
@@ -110,7 +112,7 @@ struct partitionTuple
      *@param source - base tuple
      *@return destination - std::tuple with values taken from base tuple based on sequence
      */
-    template<unsigned... Is>
+    template<int... Is>
     static PartitionType part(sequence<Is...>, Tuple source)
     {
         PartitionType destination;
@@ -150,16 +152,16 @@ template <
         int... Sequence,
         typename Tuple
         >
-auto make_custom_tuple(const Tuple& tuple)
+auto make_custom_tuple(Tuple&& tuple)
 -> decltype( 
     details::partitionTuple<Tuple, Sequence...>::part(
         details::partitionTuple<Tuple, Sequence...>::range, 
-        tuple
+        std::forward<Tuple>(tuple)
     ))
 {
     return details::partitionTuple<Tuple, Sequence...>::part(
         details::partitionTuple<Tuple, Sequence...>::range, 
-        tuple
+        std::forward<Tuple>(tuple)
     );
 }
 

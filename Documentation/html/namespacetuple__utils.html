@@ -101,11 +101,11 @@ Namespaces</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a3a31734e87d8545c7e1a8acef7da3fc5"><td class="memTemplParams" colspan="2">template&lt;typename... Args1&gt; </td></tr>
 <tr class="memitem:a3a31734e87d8545c7e1a8acef7da3fc5"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a3a31734e87d8545c7e1a8acef7da3fc5">c_product</a> (const std::tuple&lt; Args1...&gt; &amp;x) -&gt; std::tuple&lt; Args1...&gt;</td></tr>
-<tr class="memdesc:a3a31734e87d8545c7e1a8acef7da3fc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate value of Cartesian product of one std::tuple Simply returns value of the given argument.  <a href="#a3a31734e87d8545c7e1a8acef7da3fc5">More...</a><br/></td></tr>
+<tr class="memdesc:a3a31734e87d8545c7e1a8acef7da3fc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate value of Cartesian product of one std::tuple.  <a href="#a3a31734e87d8545c7e1a8acef7da3fc5">More...</a><br/></td></tr>
 <tr class="separator:a3a31734e87d8545c7e1a8acef7da3fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac76a5c539f95607f7d0b7b305162fe28"><td class="memTemplParams" colspan="2">template&lt;typename... Args1, typename... Args2, typename... Rest&gt; </td></tr>
 <tr class="memitem:ac76a5c539f95607f7d0b7b305162fe28"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#ac76a5c539f95607f7d0b7b305162fe28">c_product</a> (const std::tuple&lt; Args1...&gt; &amp;x, const std::tuple&lt; Args2...&gt; &amp;y, const Rest &amp;...rest) -&gt; typename <a class="el" href="structtuple__utils_1_1details_1_1c__product__type.html">details::c_product_type</a>&lt; std::tuple&lt; Args1...&gt;, std::tuple&lt; Args2...&gt;, Rest...&gt;::type</td></tr>
-<tr class="memdesc:ac76a5c539f95607f7d0b7b305162fe28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate n-ary Cartesian product over n std::tuple's Given n std::tuples T1, T2, T3, ..., Tn it calculates (T1 x (T2 x (T3 x (...  <a href="#ac76a5c539f95607f7d0b7b305162fe28">More...</a><br/></td></tr>
+<tr class="memdesc:ac76a5c539f95607f7d0b7b305162fe28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate n-ary Cartesian product over n std::tuple's.  <a href="#ac76a5c539f95607f7d0b7b305162fe28">More...</a><br/></td></tr>
 <tr class="separator:ac76a5c539f95607f7d0b7b305162fe28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8155db532a3428ca6f1869d1cefbcb45"><td class="memTemplParams" colspan="2">template&lt;typename Func , typename Tuple &gt; </td></tr>
 <tr class="memitem:a8155db532a3428ca6f1869d1cefbcb45"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetuple__utils.html#a8155db532a3428ca6f1869d1cefbcb45">explode</a> (Func &amp;&amp;func, Tuple &amp;&amp;tuple) -&gt; decltype(<a class="el" href="namespacetuple__utils_1_1details.html#a0801e6e6a7746416c6fd3b2e75c2ac7b">details::explode_det</a>(std::forward&lt; Func &gt;(func), std::forward&lt; typename std::decay&lt; Tuple &gt;::type &gt;(tuple), typename make_sequence&lt; std::tuple_size&lt; typename std::decay&lt; Tuple &gt;::type &gt;::value &gt;::type()))</td></tr>
@@ -164,8 +164,8 @@ template&lt;typename... Args1&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Calculate value of Cartesian product of one std::tuple Simply returns value of the given argument. </p>
-<p>Used as a last step by <a class="el" href="namespacetuple__utils.html#a3a31734e87d8545c7e1a8acef7da3fc5" title="Calculate value of Cartesian product of one std::tuple Simply returns value of the given argument...">tuple_utils::c_product</a> invoked for more than one std::tuple </p>
+<p>Calculate value of Cartesian product of one std::tuple. </p>
+<p>Simply returns value of the given argument. Used as a last step by <a class="el" href="namespacetuple__utils.html#a3a31734e87d8545c7e1a8acef7da3fc5" title="Calculate value of Cartesian product of one std::tuple. ">tuple_utils::c_product</a> invoked for more than one std::tuple </p>
 
 </div>
 </div>
@@ -202,8 +202,9 @@ template&lt;typename... Args1, typename... Args2, typename... Rest&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Calculate n-ary Cartesian product over n std::tuple's Given n std::tuples T1, T2, T3, ..., Tn it calculates (T1 x (T2 x (T3 x (... </p>
-<p>x (T(n-1) x Tn))))) where Ti x Tj is calculated by <a class="el" href="namespacetuple__utils_1_1details.html#ad669fc9e03830c41783d8a8e7fe1ed74" title="Return Cartesian product of two std::tuples For each value from the first argument combine it with ea...">details::c_product_bin</a>. Example </p>
+<p>Calculate n-ary Cartesian product over n std::tuple's. </p>
+<p>Given n std::tuples T1, T2, T3, ..., Tn it calculates (T1 x (T2 x (T3 x (... x (T(n-1) x Tn))))) where Ti x Tj is calculated by <a class="el" href="namespacetuple__utils_1_1details.html#ad669fc9e03830c41783d8a8e7fe1ed74" title="Return Cartesian product of two std::tuples. ">details::c_product_bin</a>.</p>
+<p>Example: </p>
 <div class="fragment"><div class="line"><span class="keyword">auto</span> x = std::make_tuple(6, 3);</div>
 <div class="line"><span class="keyword">auto</span> y = std::make_tuple(<span class="stringliteral">&quot;xxx&quot;</span>, 5.3);</div>
 <div class="line"><span class="keyword">auto</span> z = std::make_tuple(7, -2);</div>
@@ -560,7 +561,7 @@ template&lt;typename... Tuples&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 26 2013 19:08:35 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 26 2013 19:14:43 for TUPLEUTILS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>
