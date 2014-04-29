@@ -126,6 +126,17 @@ struct contain_empty<T> : private static_
     static constexpr bool value = !std::tuple_size<CT>::value;
 };
 
+/**
+ * @brief Give size of bare Tuple type (stripped from cv qualifiers and references)
+ */
+template <
+        typename Tuple
+        >
+struct size_bare
+{
+    static constexpr auto value = std::tuple_size<typename std::decay<Tuple>::type>::value;
+};
+
 } // namespace tuple_utils
 
 #endif // TRAITS_HPP

@@ -4,6 +4,7 @@
 #include <tuple>
 #include <type_traits>
 #include "aux/sequence.hpp"
+#include "aux/traits.hpp"
 
 /**
  * @file
@@ -58,13 +59,13 @@ auto explode(Func&& func, Tuple&& tuple)
 -> decltype(details::explode_det(
                 std::forward<Func>(func),
                 std::forward<typename std::decay<Tuple>::type>(tuple),
-                typename make_sequence<std::tuple_size<typename std::decay<Tuple>::type>::value>::type()
+                typename make_sequence<size_bare<Tuple>::value>::type()
             ))
 {
     return details::explode_det(
                 std::forward<Func>(func),
                 std::forward<typename std::decay<Tuple>::type>(tuple),
-                typename make_sequence<std::tuple_size<typename std::decay<Tuple>::type>::value>::type()
+                typename make_sequence<size_bare<Tuple>::value>::type()
             );
 }
 
